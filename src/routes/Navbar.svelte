@@ -29,7 +29,7 @@
         width: 100%;
         top: 0;
         left: 0;
-        padding: 8px;
+        padding: 16px 32px;
         .title {
             flex: 4;
             font-weight: bold;
