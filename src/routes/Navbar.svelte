@@ -17,7 +17,7 @@
                 <button class="nav-button">Galerie</button>
                 <button class="nav-button">Kontakty</button>
             </div>
-            <button class="order-now">Objednat nyní</button>
+            <button class="button-primary">Objednat nyní</button>
         </div>
     </div>
 </nav>
@@ -59,18 +59,31 @@
                     .nav-button {
                         background-color: transparent;
                         color: white;
-                        font-size: 1.2rem;
+                        font-size: 1rem;
+                        font-weight: bold;
                         border: 0;
+                        font-family: "Titillium Web", sans-serif;
+                        padding: 8px 16px;
+                        border-radius: 10px;
+                        transition:
+                            box-shadow 0.3s,
+                            color 0.3s,
+                            border 0.3s;
+                        border: 1px solid transparent;
                     }
-                }
-                .order-now {
-                    background-color: #33bbff;
-                    color: white;
-                    border: #1c6285 solid 1px;
-                    font-size: 1.2rem;
-                    border-radius: 10px;
-                    padding: 8px;
-                    white-space: nowrap;
+                    .nav-button:hover {
+                        color: rgb(51, 187, 255);
+                        border: 1px solid rgb(51, 187, 255);
+                    }
+                    .nav-button:focus {
+                        color: rgb(51, 187, 255);
+                    }
+                    .nav-button:active {
+                        color: rgb(39, 140, 190);
+                        box-shadow:
+                            rgba(5, 17, 24, 0.6) 3px 3px 6px 0px inset,
+                            rgba(0, 63, 145, 0.158) -3px -3px 6px 1px inset;
+                    }
                 }
             }
         }

@@ -1,7 +1,10 @@
 <script lang="ts">
+    import Home from "./Home.svelte";
 </script>
 
-<div class="home"></div>
+<div class="home">
+    <Home></Home>
+</div>
 
 <style>
     .home {
