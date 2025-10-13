@@ -1,23 +1,25 @@
 <script lang="ts">
+import {goto} from "$app/navigation";
 </script>
 
 <nav class="navigation-container">
     <div class="title">
-        <img
-            src="/src/lib/assets/logo_brighter.svg"
-            width="250rem"
-            height="240rem"
-            alt="logo"
-        />
+        <a class="logo-wrapper-anchor" href="/">
+            <img
+                src="/src/lib/assets/logo_brighter.svg"
+                width="125"
+                height="120"
+                alt="logo"
+            />
+        </a>
     </div>
     <div class="buttons-container">
         <div class="buttons">
             <div class="nav-buttons">
-                <button class="nav-button">Služby</button>
-                <button class="nav-button">Galerie</button>
-                <button class="nav-button">Kontakty</button>
+                <a class="nav-button" href="/services">Služby</a>
+                <a class="nav-button" href="/contacts">Kontakty</a>
             </div>
-            <button class="button-primary">Objednat nyní</button>
+            <button class="button-primary" on:click={() => goto("/order")}>Objednat nyní</button>
         </div>
     </div>
 </nav>
@@ -34,11 +36,20 @@
             flex: 4;
             font-weight: bold;
             align-self: center;
+
+            .logo-wrapper-anchor {
+                display: inline-block;
+            }
             img {
                 background-color: rgba(0, 63, 145, 0.158);
                 border-radius: 10%;
                 padding: 16px;
                 padding-top: 0;
+                transition: filter 0.3s;
+                &:hover {
+                    filter: brightness(50%);
+                    cursor: pointer;
+                }
             }
         }
 
@@ -57,6 +68,7 @@
                     flex: 1;
                     gap: 8px;
                     .nav-button {
+                        text-decoration: none;
                         background-color: transparent;
                         color: white;
                         font-size: 1rem;
@@ -80,9 +92,6 @@
                     }
                     .nav-button:active {
                         color: rgb(39, 140, 190);
-                        box-shadow:
-                            rgba(5, 17, 24, 0.6) 3px 3px 6px 0px inset,
-                            rgba(0, 63, 145, 0.158) -3px -3px 6px 1px inset;
                     }
                 }
             }
