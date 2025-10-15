@@ -12,6 +12,7 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
             <input type="email" placeholder="Email">
             <input type="tel" placeholder="Mobil">
             <textarea placeholder="Napis neco o svem aute a potrebnych sluzbach"></textarea>
+            <button class="button-primary">Poptat sluzby</button>
         </div>
         <div class="contact-info">
             <ContactInfoCard header="Mobil" icon="phone">
@@ -60,7 +61,7 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      height: 100%;
+      max-height: 100%;
       overflow: auto;
     }
 
