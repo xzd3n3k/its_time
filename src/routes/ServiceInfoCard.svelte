@@ -26,7 +26,7 @@
         <div class="card-content">
             {@render children?.()}
         </div>
-        {price}
+        <span class="price">{price}</span>
     </div>
 
 </div>
@@ -34,7 +34,8 @@
 <style lang="scss">
   .card-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     gap: 16px;
     border: 1px solid rgb(48 53 65);
     border-radius: 0.75rem;
@@ -55,6 +56,9 @@
     .card-content-container {
       width: 100%;
       line-height: 24px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -87,5 +91,11 @@
     min-width: 48px;
     min-height: 48px;
     height: 48px;
+  }
+
+  .price {
+    color: rgb(26 140 255);
+    font-weight: 600;
+    margin-top: auto;
   }
 </style>
