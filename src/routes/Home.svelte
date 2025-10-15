@@ -15,18 +15,6 @@ import {goto} from "$app/navigation";
 </div>
 
 <style lang="scss">
-    h1 {
-        font-size: 5rem;
-        color: rgb(51, 187, 255);
-        font-family: "Titillium Web", sans-serif;
-    }
-    p {
-        color: rgb(177, 177, 177);
-        font-size: 1.3rem;
-        width: 50%;
-        text-align: center;
-        margin-bottom: 24px;
-    }
     .home-buttons {
         display: flex;
         width: 50%;
