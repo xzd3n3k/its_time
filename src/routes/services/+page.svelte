@@ -3,8 +3,10 @@ import ServiceInfoCard from "../ServiceInfoCard.svelte";
 </script>
 
 <div class="services">
-    <div class="services-wrapper">
-        <div class="services-container">
+    <div class="services-container">
+        <h2 class="heading">Moje sluzby</h2>
+        <p class="subheading">Profesionalni detailingove sluzby prizpusobene potrebam vaseho vozidla.</p>
+        <div class="services-wrapper">
             <ServiceInfoCard header="Rucni myti vozu" price="od 1500 Kc" icon="hand_wash">
                 Aktivni pena
                 rucni myti karoserie, podbehu a kol
@@ -64,13 +66,13 @@ import ServiceInfoCard from "../ServiceInfoCard.svelte";
     height: 100vh;
   }
 
-  .services-wrapper {
+  .services-container {
     padding: 160px 14px 14px;
     max-height: 100%;
     overflow: auto;
   }
 
-  .services-container {
+  .services-wrapper {
     display: grid;
     gap: 1.5rem;
     justify-self: center;
