@@ -1,3 +1,7 @@
+<script>
+import {goto} from "$app/navigation";
+</script>
+
 <div class="home-page">
     <h1>Prémiový Auto Detailing</h1>
     <p>
@@ -5,8 +9,8 @@
         který obnoví a ochrání jeho krásu.
     </p>
     <div class="home-buttons">
-        <button class="button-primary">Domluvit si termín</button>
-        <button class="button-outline">Nabídka služeb</button>
+        <button class="button-primary" on:click={() => goto('/contacts')}>Domluvit si termín</button>
+        <button class="button-outline" on:click={() => goto('/services')}>Nabídka služeb</button>
     </div>
 </div>
 
