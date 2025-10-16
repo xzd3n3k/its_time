@@ -46,7 +46,7 @@ import {goto} from "$app/navigation";
                 padding: 8px;
                 transition: filter 0.3s;
                 &:hover {
-                    filter: brightness(50%);
+                    filter: brightness(140%);
                     cursor: pointer;
                 }
             }

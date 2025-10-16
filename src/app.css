@@ -1,3 +1,38 @@
+/*:root {*/
+/*    --color-primary: #008abf;*/
+/*    --color-primary-hover: #0077a6;*/
+/*    --color-secondary: #432273;*/
+/*    --color-accent: #00a7d6;*/
+
+/*    --color-bg-light: #f6f8fa;*/
+/*    --color-bg-dark: #121212;*/
+
+/*    --color-text-primary: #1a1a1a;*/
+/*    --color-text-secondary: #5c5c5c;*/
+/*    --color-border: #e0e0e0;*/
+/*}*/
+:root {
+    /* Brand Colors */
+    --color-primary: #008abf;
+    --color-primary-hover: #0077a6;
+    --color-secondary: #432273;
+    --color-accent: #00a7d6;
+
+    /* Backgrounds */
+    --color-bg-light: #f6f8fa;
+    --color-bg-dark: #0d1117;
+
+    /* Texts */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #94a3b8;
+
+    /* Borders */
+    --color-border: #303541;
+
+    /* Effects */
+    --shadow-primary: 0 0 40px rgba(26, 140, 255, 0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -65,18 +100,22 @@ html {
 }
 
 .button-primary {
-    background-image: linear-gradient(135deg, rgb(26, 140, 255) 0%, rgb(51, 187, 255) 100%);
-    color: white;
-    border: #1c6285 solid 1px;
     font-size: 1rem;
     border-radius: 10px;
     font-weight: bold;
     padding: 8px;
     white-space: nowrap;
     font-family: "Titillium Web", sans-serif;
+    background-image: linear-gradient(
+            135deg,
+            var(--color-primary) 0%,
+            var(--color-secondary) 100%
+    );
+    border: none;
+    color: white;
 
     &:hover {
-        box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(26, 140, 255, 0.3) 0px 0px 40px 0px;
+        box-shadow: var(--shadow-primary);
     }
 }
 
@@ -108,19 +147,38 @@ button {
 
 h1 {
     font-size: 5rem;
-    color: rgb(51, 187, 255);
     font-family: "Titillium Web", sans-serif;
+    background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* for better cross-browser support */
+    background-clip: text;
+    color: transparent;
 }
 h2 {
     font-size: 3rem;
-    color: rgb(51, 187, 255);
     font-family: "Titillium Web", sans-serif;
     font-weight: 600;
+    background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* for better cross-browser support */
+    background-clip: text;
+    color: transparent;
 }
 h3 {
     font-size: 24px;
     font-weight: 700;
     font-family: "Titillium Web", sans-serif;
+    background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* for better cross-browser support */
+    background-clip: text;
+    color: transparent;
 }
 p {
     color: rgb(177, 177, 177);

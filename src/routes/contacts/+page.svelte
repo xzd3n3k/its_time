@@ -96,7 +96,7 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
       display: flex;
       flex-direction: column;
       gap: 16px;
-      border: 1px solid rgb(48 53 65);
+      border: 1px solid var(--color-border);
       border-radius: 0.75rem;
       padding: 1.5rem;
       background-image: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 10%) 100%);
@@ -106,11 +106,11 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
       }
 
       .title {
-        color: white;
+        color: var(--color-text-primary);
       }
 
       .subtitle {
-        color: rgb(148, 163, 184);
+        color: var(--color-text-secondary);
       }
     }
 </style>

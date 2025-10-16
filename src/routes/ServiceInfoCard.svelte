@@ -37,7 +37,7 @@
     flex-direction: column;
     align-items: start;
     gap: 16px;
-    border: 1px solid rgb(48 53 65);
+    border: 1px solid var(--color-border);
     border-radius: 0.75rem;
     padding: 1.5rem;
     background-image: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 10%) 100%);
@@ -46,10 +46,10 @@
     cursor: default;
 
     &:hover {
-      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(26, 140, 255, 0.3) 0px 0px 40px 0px;
-      border-color: rgb(26, 140, 255);
+      box-shadow: var(--shadow-primary);
+      border-color: var(--color-primary);
       .icon-wrapper {
-        background-color: rgb(26 140 255 / 20%);;
+        background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
       }
     }
 
@@ -67,7 +67,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
-    color: white;
+    color: var(--color-text-primary);
 
     h3 {
       font-size: 1.1rem;
@@ -78,14 +78,14 @@
 
   .card-content {
     font-size: 0.95rem;
-    color: rgb(148, 163, 184);
+    color: var(--color-text-secondary);
   }
 
   .icon-wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(26, 140, 255, 0.1);
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
     border-radius: 0.75rem;
     width: 48px;
     min-width: 48px;
