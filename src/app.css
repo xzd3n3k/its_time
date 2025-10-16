@@ -172,13 +172,7 @@ h3 {
     font-size: 24px;
     font-weight: 700;
     font-family: "Titillium Web", sans-serif;
-    background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* for better cross-browser support */
-    background-clip: text;
-    color: transparent;
+    color: var(--color-text-primary);
 }
 p {
     color: rgb(177, 177, 177);
