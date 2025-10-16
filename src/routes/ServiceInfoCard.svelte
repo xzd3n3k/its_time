@@ -1,7 +1,24 @@
 <script lang="ts">
-    import * as Svelte from "svelte";
+    interface PriceListItem {
+        variant: string,
+        price: string,
+    }
 
-    let {header, price, icon, children}: {header?: string, price?: string, icon?: string, children?: Svelte.Snippet} = $props();
+    let {
+        title,
+        subtitle,
+        priceList,
+        taskList,
+        price,
+        icon,
+    }: {
+        title?: string,
+        subtitle?:string,
+        priceList?: PriceListItem[],
+        taskList?: string[],
+        price?: string,
+        icon?: string,
+    } = $props();
 </script>
 
 <div class="card-container">
@@ -17,21 +34,50 @@
     {/if}
 
     <div class="card-content-container">
-        {#if header}
+        {#if title}
             <div class="card-header">
-                {#if header}<h3>{header}</h3>{/if}
+                <h3>{title}</h3>
             </div>
         {/if}
-
-        <div class="card-content">
-            {@render children?.()}
-        </div>
+        {#if subtitle}
+            <div class="card-content">
+                {subtitle}
+            </div>
+        {/if}
+        {#if priceList?.length}
+            <div class="price-list-items">
+                {#each priceList as priceListItem, i (i)}
+                    <div class="card-content price-list-item">
+                        <span>{priceListItem.variant}</span>
+                        <span class="price">{priceListItem.price}</span>
+                    </div>
+                {/each}
+            </div>
+        {/if}
+        <hr>
+        {#if taskList?.length}
+            <ul class="task-list">
+                {#each taskList as taskListItem, i (i)}
+                    <li>
+                        <span class="task-bullet">•</span>
+                        <span>{taskListItem}</span>
+                    </li>
+                {/each}
+            </ul>
+        {/if}
         <span class="price">{price}</span>
     </div>
 
 </div>
 
 <style lang="scss">
+  hr {
+    height: 1px;
+    color: var(--color-border);
+    background: var(--color-border);
+    font-size: 0;
+    border: 0;
+  }
   .card-container {
     display: flex;
     flex-direction: column;
@@ -59,6 +105,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      gap: 14px;
     }
   }
 
@@ -77,8 +124,25 @@
   }
 
   .card-content {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--color-text-secondary);
+  }
+
+  .task-list {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .task-bullet {
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--color-accent);
+      margin-right: .5rem;
+    }
   }
 
   .icon-wrapper {
@@ -93,8 +157,16 @@
     height: 48px;
   }
 
+  .price-list-items {
+    .price-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   .price {
-    color: rgb(26 140 255);
+    color: var(--color-accent);
     font-weight: 600;
     margin-top: auto;
   }

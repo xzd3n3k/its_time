@@ -1,73 +1,113 @@
 <script>
   import ServiceInfoCard from "../ServiceInfoCard.svelte";
+
+  const services = [
+      {
+          title: "Ruční mytí vozu",
+          subtitle: "Kompletní ruční mytí s prémiovou péčí",
+          priceList: [
+              { variant: "Sedan, Kombi", price: "1 500 Kč" },
+              { variant: "SUV", price: "2 000 Kč" },
+              { variant: "MPV, Minivan", price: "2 500 Kč" }
+          ],
+          taskList: [
+              "Aktivní pěna",
+              "Ruční mytí karoserie, podběhů a kol",
+              "Aplikace tekutého vosku",
+              "Sušení vozu, včetně mezidveřního prostoru",
+              "Vyleštění oken exteriéru",
+              "Impregnace pneumatik"
+          ],
+          icon: "hand_wash"
+      },
+      {
+          title: "Balíček Standard",
+          subtitle: "Základní péče o interiér a exteriér vozu",
+          priceList: [
+              { variant: "Sedan, Kombi", price: "3 000 Kč" },
+              { variant: "SUV", price: "3 500 Kč" },
+              { variant: "MPV, Minivan", price: "5 000 Kč" }
+          ],
+          taskList: [
+              "Ruční mytí vozu",
+              "Vysátí interiéru",
+              "Aplikace tekutého vosku",
+              "Čištění interiérových plastů",
+              "Vyleštění oken a displejů",
+          ],
+          icon: "standard_package"
+      },
+      {
+          title: "Balíček Premium",
+          subtitle: "Komplexní péče o interiér i exteriér s ochranou skel, sedadel a interiérových plastů",
+          priceList: [
+              { variant: "Sedan, Kombi", price: "4 500 Kč" },
+              { variant: "SUV", price: "5 500 Kč" },
+              { variant: "MPV, Minivan", price: "8 000 Kč" }
+          ],
+          taskList: [
+              "Ruční mytí vozu + Balíček Standard",
+              "Navíc: Tepování textilních sedadel a koberců",
+              "Čištění kožených sedadel a následná impregnace",
+              "Čištění interiérových plastů, včetně následné impregnace",
+              "Aplikace keramického povlaku na okna"
+          ],
+          icon: "premium_package"
+      },
+      {
+          title: "Voskování vozu",
+          subtitle: "Ochrana laku a dlouhotrvající lesk",
+          priceList: [
+              { variant: "Sedan, Kombi", price: "4 000 Kč" },
+              { variant: "SUV", price: "6 000 Kč" },
+              { variant: "MPV, Minivan", price: "8 000 Kč" }
+          ],
+          taskList: [
+              "Ruční mytí vozu",
+              "Chemická a mechanická dekontaminace laku",
+              "Aplikace tuhého vosku s životností až 12 měsíců",
+              "Aplikace keramického povlaku na okna",
+          ],
+          icon: "wax"
+      },
+      {
+          title: "Renovace a leštění laku",
+          subtitle: "Profesionální péče o lak pro obnovu lesku a odstranění drobných nedokonalostí",
+          price: "od 7 000 Kč",
+          icon: "paint_correction"
+      },
+      {
+          title: "Keramická ochrana laku",
+          subtitle: "Dlouhodobá ochrana a maximální lesk laku vozidla",
+          priceList: [
+              { variant: "Keramická ochrana na jeden rok", price: "12 000 Kč" },
+              { variant: "Keramická ochrana na dva roky", price: "20 000 Kč" },
+          ],
+          icon: "ceramic_coating"
+      },
+      {
+          title: "Dezinfekce ozonem",
+          subtitle: "Efektivní odstranění zápachu a bakterií z interiéru",
+          taskList: [
+              "Odstranění zápachu a dezinfekce prostor (čištění ozonem) provádíme pomocí výkonných generátorů ozonu",
+              "Ozon ničí bakterie, viry a plísně",
+          ],
+          price: "500 Kč",
+          icon: "ozone_disinfection"
+      },
+  ]
 </script>
 
 <div class="services">
   <div class="services-container">
-    <h2 class="heading">Moje sluzby</h2>
+    <h2 class="heading">Moje služby</h2>
     <p class="subheading">
-      Profesionalni detailingove sluzby prizpusobene potrebam vaseho vozidla.
+      Profesionální detailingové služby přizpůsobené potřebám vašeho vozidla.
     </p>
     <div class="services-wrapper">
-      <ServiceInfoCard
-        header="Rucni myti vozu"
-        price="od 1500 Kc"
-        icon="hand_wash"
-      >
-        Aktivni pena rucni myti karoserie, podbehu a kol aplikace tekuteho vosku
-        suseni vozy, vcetne mezidverniho prostoru vylesteni oken exterieru
-        impregnace pneumatik
-      </ServiceInfoCard>
-      <ServiceInfoCard
-        header="Balicek Standard"
-        price="od 3000 Kc"
-        icon="standard_package"
-      >
-        Rucni myti vozu Vysati interieru Cisteni interierovych plastu Vylesteni
-        oken a displeju
-      </ServiceInfoCard>
-      <ServiceInfoCard
-        header="Balicek Premium"
-        price="od 4500 Kc"
-        icon="premium_package"
-      >
-        Rucni myti vozu + balicek Standard Navic: Tepovani textilnich sedadel a
-        kobercu Čištění kožených sedadel a následná impregnace Čištění
-        interiérových plastů, včetně následné impregnace Aplikace keramického
-        povlaku na okna
-      </ServiceInfoCard>
-      <ServiceInfoCard header="Voskovani vozu" price="od 4000 Kc" icon="wax">
-        Ruční mytí vozu Chemická a mechanická dekontaminace laku Aplikace tuhého
-        vosku s životností až 12 měsíců Aplikace keramického povlaku na okna
-      </ServiceInfoCard>
-      <ServiceInfoCard
-        header="Renovace a lesteni laku"
-        price="od 7000 Kc"
-        icon="paint_correction"
-      >
-        Pro stanovení přesné ceny za leštění laku je nezbytné vozidlo osobně
-        prohlédnout a dohodnout se na očekávaném výsledku. Ceny se mohou lišit v
-        závislosti na rozsahu poškození laku, velikosti vozidla a zvolených
-        postupech renovace.
-      </ServiceInfoCard>
-      <ServiceInfoCard
-        header="Keramicka ochrana laku"
-        price="od 12000 Kc"
-        icon="ceramic_coating"
-      >
-        Pro dosažení nejlepších výsledků a dlouhotrvající ochrany je leštění
-        laku před aplikací keramické ochrany nezbytným krokem. Investice do této
-        přípravy se odrazí ve vynikajícím vzhledu vašeho vozidla a maximální
-        efektivitě ochranné vrstvy.
-      </ServiceInfoCard>
-      <ServiceInfoCard
-        header="Dezinfekce ozonem"
-        price="500 Kc"
-        icon="ozone_disinfection"
-      >
-        Odstranění zápachu a dezinfekce prostor (čištění ozonem) provádíme
-        pomocí výkonných generátorů ozonu Ozon ničí bakterie, viry a plísně
-      </ServiceInfoCard>
+        {#each services as serviceItem, i (i)}
+            <ServiceInfoCard {...serviceItem} />
+        {/each}
     </div>
   </div>
 </div>
