@@ -54,7 +54,7 @@ import {goto} from "$app/navigation";
         }
 
         .buttons-container {
-            flex: 2;
+            flex: 0;
             .buttons {
                 display: flex;
                 height: fit-content;
