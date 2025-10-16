@@ -8,7 +8,7 @@
 
 <style>
     .home {
-        background-image: url("/src/lib/assets/hero_car.jpg"),
+        background-image: url("/src/lib/assets/gtr_back.jpeg"),
             radial-gradient(
                 circle,
                 hsl(220 20% 8% / 0.8),

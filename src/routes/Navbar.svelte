@@ -6,7 +6,7 @@ import {goto} from "$app/navigation";
     <div class="title">
         <a class="logo-wrapper-anchor" href="/">
             <img
-                src="/src/lib/assets/logo_brighter.svg"
+                src="/src/lib/assets/logo_zakladni.svg"
                 width="125"
                 height="120"
                 alt="logo"
@@ -43,8 +43,7 @@ import {goto} from "$app/navigation";
             img {
                 background-color: rgba(0, 63, 145, 0.158);
                 border-radius: 10%;
-                padding: 16px;
-                padding-top: 0;
+                padding: 8px;
                 transition: filter 0.3s;
                 &:hover {
                     filter: brightness(50%);
