@@ -120,6 +120,8 @@ html {
 }
 
 a, button, input, textarea {
+    outline-color: transparent;
+    border-radius: 10px;
     &:focus {
         transition-property: all;
         transition-timing-function: cubic-bezier(.4, 0, .2, 1);
