@@ -100,7 +100,7 @@
 
 <div class="services">
   <div class="services-container">
-    <h2 class="heading">Moje služby</h2>
+    <h2 class="heading">Naše služby</h2>
     <p class="subheading">
       Profesionální detailingové služby přizpůsobené potřebám vašeho vozidla.
     </p>

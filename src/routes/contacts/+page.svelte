@@ -5,17 +5,17 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
 
 <div class="contacts">
     <div class="contacts-container">
-        <h2 class="heading">Domluvte si svuj termin</h2>
-        <p class="subheading">Pripraveni doprat svemu vozidlu peci, kterou si zaslouzi? Kontaktujte me jeste dnes.</p>
+        <h2 class="heading">Domluvte si svůj termín</h2>
+        <p class="subheading">Připraveni dopřát svému vozidlu péči, kterou si zaslouží? Kontaktujte nás ještě dnes.</p>
         <div class="contacts-wrapper">
             <div class="contact-form">
-                <h3 class="title">Posli mi zpravu</h3>
-                <span class="subtitle">Vypln formular a ja se ti ozvu hned jak to bude mozne</span>
-                <input type="text" placeholder="Jmeno">
+                <h3 class="title">Napiště nám</h3>
+                <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
+                <input type="text" placeholder="Jméno">
                 <input type="email" placeholder="Email">
                 <input type="tel" placeholder="Mobil">
-                <textarea placeholder="Napis neco o svem aute a potrebnych sluzbach"></textarea>
-                <button class="button-primary">Poptat sluzby</button>
+                <textarea placeholder="Napiště něco o svém vozidle a potřebných službách"></textarea>
+                <button class="button-primary">Poptat služby</button>
             </div>
             <div class="contact-info">
                 <ContactInfoCard header="Mobil" icon="phone">
@@ -30,9 +30,9 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
                         <span>666 01 Tisnov</span>
                     </div>
                 </ContactInfoCard>
-                <ContactInfoCard header="Oteviraci doba">
+                <ContactInfoCard header="Otevírací doba">
                     <div class="business-hours">
-                        <span>Pondeli - Patek</span>
+                        <span>Pondělí - Pátek</span>
                         <span>9:00 - 17:00</span>
                     </div>
                     <div class="business-hours">
@@ -40,8 +40,8 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
                         <span>10:00 - 15:00</span>
                     </div>
                     <div class="business-hours">
-                        <span>Nedele</span>
-                        <span>Po domluve</span>
+                        <span>Neděle</span>
+                        <span>Po domluvě</span>
                     </div>
                 </ContactInfoCard>
             </div>
