@@ -35,5 +35,9 @@
         gap: 8px;
         height: 100%;
         flex-direction: column;
+
+      h1 {
+        text-align: center;
+      }
     }
 </style>
