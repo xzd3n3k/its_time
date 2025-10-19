@@ -54,8 +54,8 @@
                 {/each}
             </div>
         {/if}
-        <hr>
         {#if taskList?.length}
+            <hr>
             <ul class="task-list">
                 {#each taskList as taskListItem, i (i)}
                     <li>
