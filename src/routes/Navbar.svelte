@@ -19,7 +19,7 @@ import {goto} from "$app/navigation";
                 <a class="nav-button" href="/services">Služby</a>
                 <a class="nav-button" href="/contacts">Kontakty</a>
             </div>
-            <button class="button-primary" on:click={() => goto("/contacts")}>Objednat nyní</button>
+            <button class="button-outline" on:click={() => goto("/contacts")}>Objednat nyní</button>
         </div>
     </div>
 </nav>

@@ -85,18 +85,39 @@ html {
 }
 
 .button-outline {
-    background-color: transparent;
+    position: relative;
     font-size: 1rem;
-    font-weight: bold;
-    font-family: "Titillium Web", sans-serif;
-    padding: 8px 16px;
     border-radius: 10px;
-    transition:
-        box-shadow 0.3s,
-        color 0.3s,
-        border 0.3s;
-    color: rgb(51, 187, 255);
-    border: 1px solid rgb(51, 187, 255);
+    font-weight: bold;
+    padding: 8px 16px;
+    white-space: nowrap;
+    font-family: "Titillium Web", sans-serif;
+    background: transparent;
+    border: 2px solid transparent;
+    color: white;
+    cursor: pointer;
+    z-index: 0;
+    transition: color 0.3s, box-shadow 0.3s;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        margin: -3px;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        z-index: -1;
+    }
+
+
+    &:hover {
+        box-shadow: var(--shadow-primary);
+    }
 }
 
 .button-primary {
@@ -118,6 +139,7 @@ html {
         box-shadow: var(--shadow-primary);
     }
 }
+
 
 a, button, input, textarea {
     outline-color: transparent;
