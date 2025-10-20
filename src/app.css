@@ -220,5 +220,9 @@ p {
 @media only screen and (max-width: 1024px) {
     .mobile-menu-toggle-button {
         display: inline-block !important;
+        z-index: 200 !important;
+        position: absolute !important;
+        right: 15px !important;
+        top: 15px !important;
     }
 }

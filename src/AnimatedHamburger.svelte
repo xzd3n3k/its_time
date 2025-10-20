@@ -15,7 +15,7 @@
             class:open
             viewBox="0 0 100 100"
             fill="none"
-            stroke="rgb(26, 140, 255)"
+            stroke="{open ? 'white' : 'rgb(26, 140, 255)'}"
             stroke-width="5"
             {width}
     >

@@ -1,17 +1,41 @@
 <script lang="ts">
 import {goto} from "$app/navigation";
-import { fly } from 'svelte/transition'
+import { slide } from 'svelte/transition'
 import AnimatedHamburger from "../AnimatedHamburger.svelte";
+import {cubicOut} from "svelte/easing";
+import { onMount } from 'svelte';
 
 export let open = false
 export let onClick = (): void => {
     open = !open
 }
+let isMobile = false;
+
+onMount(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1024px)');
+
+    isMobile = mediaQuery.matches;
+
+    const handler = (e: MediaQueryListEvent) => {
+        isMobile = e.matches;
+    };
+    mediaQuery.addEventListener('change', handler);
+
+    return () => mediaQuery.removeEventListener('change', handler);
+});
 
 </script>
-
-<nav class="navigation-container">
-    <AnimatedHamburger customClass="mobile-menu-toggle-button" width="48" {open} {onClick} />
+<a class="logo-mobile-version" href="/">
+    <img
+            src="/src/lib/assets/logo_zakladni.svg"
+            width="62"
+            height="60"
+            alt="logo"
+    />
+</a>
+<AnimatedHamburger customClass="mobile-menu-toggle-button" width="48" {open} {onClick} />
+{#if open || !isMobile}
+<nav class="navigation-container" transition:slide="{{ duration: 400, easing: cubicOut }}">
     <div class="title">
         <a class="logo-wrapper-anchor" href="/">
             <img
@@ -32,7 +56,7 @@ export let onClick = (): void => {
         </div>
     </div>
 </nav>
-
+    {/if}
 <style lang="scss">
     .navigation-container {
         display: flex;
@@ -106,7 +130,20 @@ export let onClick = (): void => {
         }
     }
 
+    .logo-mobile-version {
+        display: none !important;
+        z-index: 50 !important;
+        position: absolute !important;
+        left: 15px !important;
+        top: 15px !important;
+    }
+
     @media only screen and (max-width: 1024px) {
+
+      .logo-mobile-version {
+        display: inline-block !important;
+      }
+
       .mobile-menu-toggle-button {
         display: inline-block !important;
       }
@@ -120,7 +157,15 @@ export let onClick = (): void => {
         align-items: center;
         background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
         height: 100%;
-        z-index: 999;
+        z-index: 100;
+
+        .title {
+          display: none;
+        }
+
+        .buttons {
+          flex-direction: column;
+        }
       }
     }
 </style>
