@@ -158,6 +158,7 @@ onMount(() => {
         background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
         height: 100%;
         z-index: 100;
+        justify-content: center;
 
         .title {
           display: none;
@@ -165,6 +166,11 @@ onMount(() => {
 
         .buttons {
           flex-direction: column;
+
+          .nav-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
         }
       }
     }

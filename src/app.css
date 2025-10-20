@@ -144,7 +144,7 @@ html {
 a, button, input, textarea {
     outline-color: transparent;
     border-radius: 10px;
-    &:focus {
+    &:focus, &:active {
         transition-property: all;
         transition-timing-function: cubic-bezier(.4, 0, .2, 1);
         transition-duration: .15s;
@@ -167,6 +167,10 @@ input, textarea {
 
 button {
     cursor: pointer;
+}
+
+a, .image-overlay-line, button  {
+    user-select: none !important;
 }
 
 h1 {
