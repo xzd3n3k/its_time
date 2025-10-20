@@ -1,8 +1,17 @@
 <script lang="ts">
 import {goto} from "$app/navigation";
+import { fly } from 'svelte/transition'
+import AnimatedHamburger from "../AnimatedHamburger.svelte";
+
+export let open = false
+export let onClick = (): void => {
+    open = !open
+}
+
 </script>
 
 <nav class="navigation-container">
+    <AnimatedHamburger customClass="mobile-menu-toggle-button" width="48" {open} {onClick} />
     <div class="title">
         <a class="logo-wrapper-anchor" href="/">
             <img
@@ -95,5 +104,23 @@ import {goto} from "$app/navigation";
                 }
             }
         }
+    }
+
+    @media only screen and (max-width: 1024px) {
+      .mobile-menu-toggle-button {
+        display: inline-block !important;
+      }
+      nav {
+        position: absolute;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
+        height: 100%;
+        z-index: 999;
+      }
     }
 </style>

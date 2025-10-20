@@ -209,3 +209,16 @@ p {
     width: 100%;
     text-align: center;
 }
+
+.mobile-menu-toggle-button {
+    display: none !important;
+    background: transparent;
+    border: none;
+    align-self: end;
+}
+
+@media only screen and (max-width: 1024px) {
+    .mobile-menu-toggle-button {
+        display: inline-block !important;
+    }
+}
