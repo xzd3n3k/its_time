@@ -1,6 +1,40 @@
 <script>
 
 import ContactInfoCard from "../ContactInfoCard.svelte";
+import emailjs from '@emailjs/browser';
+import { writable } from 'svelte/store';
+import toast from "svelte-french-toast";
+
+let name = '';
+let email = '';
+let phone = '';
+let message = '';
+
+let sending = writable(false);
+
+const sendEmail = async () => {
+    sending.set(true);
+
+    try {
+        await emailjs.send(
+            'service_j1fjx83',     // service_id
+            'template_gx98vgi',    // template_id
+            { name, email, phone, message },
+            'L0ZmjGDvgMkuH3y-t'      // public_key
+        );
+        toast.success('Email byl úspěšně odeslán.')
+        name = '';
+        email = '';
+        phone = '';
+        message = '';
+    } catch (error) {
+        console.error(error);
+        toast.error('Došlo k chybě při odesílání.');
+    } finally {
+        sending.set(false);
+    }
+};
+
 </script>
 
 <div class="contacts">
@@ -11,11 +45,13 @@ import ContactInfoCard from "../ContactInfoCard.svelte";
             <div class="contact-form">
                 <h3 class="title">Napiště nám</h3>
                 <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
-                <input type="text" placeholder="Jméno">
-                <input type="email" placeholder="Email">
-                <input type="tel" placeholder="Mobil">
-                <textarea placeholder="Napiště něco o svém vozidle a potřebných službách"></textarea>
-                <button class="button-primary">Poptat služby</button>
+                <input type="text" placeholder="Jméno" bind:value={name}>
+                <input type="email" placeholder="Email" bind:value={email}>
+                <input type="tel" placeholder="Mobil" bind:value={phone}>
+                <textarea placeholder="Napiště něco o svém vozidle a potřebných službách" bind:value={message}></textarea>
+                <button class="button-primary" on:click|preventDefault={sendEmail} disabled={$sending}>
+                    {$sending ? 'Odesílám...' : 'Poptat služby'}
+                </button>
             </div>
             <div class="contact-info">
                 <ContactInfoCard header="Mobil" icon="phone">
