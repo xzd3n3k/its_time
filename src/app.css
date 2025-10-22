@@ -171,6 +171,7 @@ button {
 
 a, .image-overlay-line, button  {
     user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
 h1 {
