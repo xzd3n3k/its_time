@@ -157,7 +157,7 @@ function openModal() {
     @media only screen and (max-width: 1024px) {
 
       .logo-mobile-version {
-        display: inline-block !important;
+        display: inline-flex !important;
       }
 
       .mobile-menu-toggle-button {

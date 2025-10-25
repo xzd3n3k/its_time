@@ -8,13 +8,23 @@
 
 <style>
     .home {
-        background-image: url("/red_audi_back.jpeg"),
-            radial-gradient(
-                circle,
-                hsl(220 20% 8% / 0.8),
-                hsl(220 20% 8% / 0.6),
-                hsl(220 20% 8%) 70%
-            );
+        background-color: hsl(220, 25%, 12%);
+        background-image:
+                radial-gradient(
+                        circle at 90% 10%,
+                        hsl(210, 100%, 20%) 0%,
+                        transparent 60%
+                ),
+                radial-gradient(
+                        circle at 10% 90%,
+                        hsl(210, 100%, 18%) 0%,
+                        transparent 70%
+                ),
+                radial-gradient(
+                        circle at 50% 50%,
+                        hsl(220, 20%, 10%) 0%,
+                        transparent 100%
+                );
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
