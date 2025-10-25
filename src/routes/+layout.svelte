@@ -2,7 +2,7 @@
 	import favicon from "$lib/assets/favicon.svg";
 	import "../app.css";
 	import Navbar from "./Navbar.svelte";
-    import {Toaster} from "svelte-french-toast";
+    import { Toaster } from 'svelte-sonner';
 
 	let { children } = $props();
 </script>

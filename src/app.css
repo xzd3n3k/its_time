@@ -222,6 +222,14 @@ p {
     align-self: end;
 }
 
+.toast--success {
+    color: green !important;
+}
+
+.toast--error {
+    color: red !important;
+}
+
 @media only screen and (max-width: 1024px) {
     .mobile-menu-toggle-button {
         display: inline-block !important;

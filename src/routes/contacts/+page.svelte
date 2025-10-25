@@ -3,7 +3,7 @@
 import ContactInfoCard from "../ContactInfoCard.svelte";
 import emailjs from '@emailjs/browser';
 import { writable } from 'svelte/store';
-import toast from "svelte-french-toast";
+import { toast } from 'svelte-sonner';
 
 let name = '';
 let email = '';
@@ -22,14 +22,14 @@ const sendEmail = async () => {
             { name, email, phone, message },
             'L0ZmjGDvgMkuH3y-t'      // public_key
         );
-        toast.success('Email byl úspěšně odeslán.')
+        toast.success('Email byl úspěšně odeslán.', {class: "toast--success"})
         name = '';
         email = '';
         phone = '';
         message = '';
     } catch (error) {
         console.error(error);
-        toast.error('Došlo k chybě při odesílání.');
+        toast.error('Došlo k chybě při odesílání.', {class: "toast--error"});
     } finally {
         sending.set(false);
     }

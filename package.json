@@ -32,6 +32,6 @@
 	},
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
-		"svelte-french-toast": "^1.2.0"
+		"svelte-sonner": "^1.0.5"
 	}
 }
