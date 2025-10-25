@@ -1,10 +1,10 @@
 <script lang="ts">
-import {goto} from "$app/navigation";
 import { slide } from 'svelte/transition'
 import AnimatedHamburger from "../AnimatedHamburger.svelte";
 import {cubicOut} from "svelte/easing";
 import { onMount } from 'svelte';
 import Dialog from "../Dialog.svelte";
+import ServiceOrderForm from "./ServiceOrderForm.svelte";
 
 export let open = false
 export let onClick = (): void => {
@@ -70,40 +70,10 @@ function openModal() {
 {/if}
 
 <Dialog bind:dialog>
-    <div class="contact-form">
-        <h3 class="title">Napiště nám</h3>
-        <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
-        <input type="text" autofocus placeholder="Jméno">
-        <input type="email" placeholder="Email">
-        <input type="tel" placeholder="Mobil">
-        <textarea placeholder="Napiště něco o svém vozidle a potřebných službách"></textarea>
-        <button class="button-primary">
-            Poptat služby
-        </button>
-    </div>
+    <ServiceOrderForm />
 </Dialog>
 
 <style lang="scss">
-  .contact-form {
-    flex: 1;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    background-image: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 10%) 100%);
-
-    textarea {
-      min-height: 120px;
-    }
-
-    .title {
-      color: var(--color-text-primary);
-    }
-
-    .subtitle {
-      color: var(--color-text-secondary);
-    }
-  }
     .navigation-container {
         display: flex;
         position: fixed;
