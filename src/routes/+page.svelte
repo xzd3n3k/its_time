@@ -7,8 +7,9 @@
 </div>
 
 <style>
-    html, body {
-        background: #14181FFF;
+    :global(html),
+    :global(body) {
+        background-color: #14181FFF;
     }
     .home {
         background-color: hsl(220, 25%, 12%);
