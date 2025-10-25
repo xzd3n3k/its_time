@@ -4,12 +4,14 @@ import { slide } from 'svelte/transition'
 import AnimatedHamburger from "../AnimatedHamburger.svelte";
 import {cubicOut} from "svelte/easing";
 import { onMount } from 'svelte';
+import Dialog from "../Dialog.svelte";
 
 export let open = false
 export let onClick = (): void => {
     open = !open
 }
 let isMobile = false;
+let dialog: HTMLDialogElement;
 
 onMount(() => {
     const mediaQuery = window.matchMedia('(max-width: 1024px)');
@@ -24,6 +26,15 @@ onMount(() => {
     return () => mediaQuery.removeEventListener('change', handler);
 });
 
+function openModal() {
+    onClick();
+
+    // wait until navbar closing animation is completed
+    requestAnimationFrame(() => {
+        dialog.showModal();
+    });
+}
+
 </script>
 <a class="logo-mobile-version" href="/">
     <img
@@ -35,29 +46,64 @@ onMount(() => {
 </a>
 <AnimatedHamburger customClass="mobile-menu-toggle-button" width="48" {open} {onClick} />
 {#if open || !isMobile}
-<nav class="navigation-container" transition:slide="{{ duration: 400, easing: cubicOut }}">
-    <div class="title">
-        <a class="logo-wrapper-anchor" href="/">
-            <img
-                src="/logo_zakladni.svg"
-                width="125"
-                height="120"
-                alt="logo"
-            />
-        </a>
-    </div>
-    <div class="buttons-container">
-        <div class="buttons">
-            <div class="nav-buttons">
-                <a class="nav-button" href="/services">Služby</a>
-                <a class="nav-button" href="/contacts">Kontakty</a>
-            </div>
-            <button class="button-outline" on:click={() => goto("/contacts")}>Objednat nyní</button>
+    <nav class="navigation-container" transition:slide="{{ duration: 400, easing: cubicOut }}">
+        <div class="title">
+            <a class="logo-wrapper-anchor" href="/">
+                <img
+                    src="/logo_zakladni.svg"
+                    width="125"
+                    height="120"
+                    alt="logo"
+                />
+            </a>
         </div>
+        <div class="buttons-container">
+            <div class="buttons">
+                <div class="nav-buttons">
+                    <a class="nav-button" href="/services" on:click={onClick}>Služby</a>
+                    <a class="nav-button" href="/contacts" on:click={onClick}>Kontakty</a>
+                </div>
+                <button class="button-outline" on:click={openModal}>Objednat nyní</button>
+            </div>
+        </div>
+    </nav>
+{/if}
+
+<Dialog bind:dialog>
+    <div class="contact-form">
+        <h3 class="title">Napiště nám</h3>
+        <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
+        <input type="text" autofocus placeholder="Jméno">
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Mobil">
+        <textarea placeholder="Napiště něco o svém vozidle a potřebných službách"></textarea>
+        <button class="button-primary">
+            Poptat služby
+        </button>
     </div>
-</nav>
-    {/if}
+</Dialog>
+
 <style lang="scss">
+  .contact-form {
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-image: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 10%) 100%);
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .title {
+      color: var(--color-text-primary);
+    }
+
+    .subtitle {
+      color: var(--color-text-secondary);
+    }
+  }
     .navigation-container {
         display: flex;
         position: fixed;
