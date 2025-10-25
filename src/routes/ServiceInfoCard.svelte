@@ -25,7 +25,7 @@
     {#if icon}
         <div class="icon-wrapper">
             <img
-                    src="/src/lib/assets/{icon}.svg"
+                    src="/{icon}.svg"
                     width="24"
                     height="24"
                     alt="icon-{icon}"

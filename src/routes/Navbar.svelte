@@ -27,7 +27,7 @@ onMount(() => {
 </script>
 <a class="logo-mobile-version" href="/">
     <img
-            src="/src/lib/assets/logo_zakladni.svg"
+            src="/logo_zakladni.svg"
             width="62"
             height="60"
             alt="logo"
@@ -39,7 +39,7 @@ onMount(() => {
     <div class="title">
         <a class="logo-wrapper-anchor" href="/">
             <img
-                src="/src/lib/assets/logo_zakladni.svg"
+                src="/logo_zakladni.svg"
                 width="125"
                 height="120"
                 alt="logo"
