@@ -238,4 +238,8 @@ p {
         right: 15px !important;
         top: 15px !important;
     }
+
+    h1 {
+        font-size: 4rem;
+    }
 }
