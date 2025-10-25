@@ -71,7 +71,7 @@ onMount(() => {
             align-self: center;
 
             .logo-wrapper-anchor {
-                display: inline-block;
+                display: inline-flex;
             }
             img {
                 background-color: rgba(0, 63, 145, 0.158);
