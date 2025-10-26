@@ -57,6 +57,25 @@
         transform: translate(-50%, -50%);
 
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+        max-width: 90vw;
+        width: max-content;
+
+        @media only screen and (max-width: 500px) {
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            border-radius: 0;
+
+            .dialog-container {
+                justify-self: center;
+                max-height: 100%;
+                height: 100%;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
     }
 
     dialog::backdrop {
