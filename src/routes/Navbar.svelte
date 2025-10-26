@@ -61,6 +61,7 @@ function openModal() {
         <div class="buttons-container">
             <div class="buttons">
                 <div class="nav-buttons">
+                    <a class="nav-button" href="/gallery" on:click={onClick}>Galerie</a>
                     <a class="nav-button" href="/services" on:click={onClick}>Služby</a>
                     <a class="nav-button" href="/contacts" on:click={onClick}>Kontakty</a>
                 </div>
