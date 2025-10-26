@@ -10,8 +10,9 @@ export let open = false
 export let onClick = (): void => {
     open = !open
 }
-let isMobile = false;
+let isMobile: boolean = false;
 let dialog: HTMLDialogElement;
+let hasMounted: boolean = false;
 
 onMount(() => {
     const mediaQuery = window.matchMedia('(max-width: 1024px)');
@@ -22,7 +23,7 @@ onMount(() => {
         isMobile = e.matches;
     };
     mediaQuery.addEventListener('change', handler);
-
+    hasMounted = true;
     return () => mediaQuery.removeEventListener('change', handler);
 });
 
@@ -45,7 +46,7 @@ function openModal() {
     />
 </a>
 <AnimatedHamburger customClass="mobile-menu-toggle-button" width="48" {open} {onClick} />
-{#if open || !isMobile}
+{#if hasMounted && (open || !isMobile)}
     <nav class="navigation-container" transition:slide="{{ duration: 400, easing: cubicOut }}">
         <div class="title">
             <a class="logo-wrapper-anchor" href="/">
