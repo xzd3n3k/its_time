@@ -46,32 +46,46 @@
     <h2>Objednávka služby</h2>
 
     <form on:submit|preventDefault={handleSubmit}>
-        <input type="text" id="name" bind:value={name} required placeholder="Jméno" autofocus />
-        <input type="email" id="email" bind:value={email} required placeholder="Email" />
-        <input type="tel" id="phone" bind:value={phone} required placeholder="Mobil" />
+        <div class="form-content-wrapper">
+            <input type="text" id="name" bind:value={name} required placeholder="Jméno" autofocus />
+            <input type="email" id="email" bind:value={email} required placeholder="Email" />
+            <input type="tel" id="phone" bind:value={phone} required placeholder="Mobil" />
 
-        <label for="services">Vyberte služby:</label>
-        <div class="services-checkbox">
-            {#each services as service, i (i)}
-                <span class="services-picker">
-                    <input
-                            type="checkbox"
-                            value={service.title}
-                            on:change={handleCheckboxChange}
-                    />
-                    {service.title}
-                </span>
-            {/each}
+            <label for="services">Vyberte služby:</label>
+            <div class="services-checkbox">
+                {#each services as service, i (i)}
+                    <span class="services-picker">
+                        <input
+                                type="checkbox"
+                                value={service.title}
+                                on:change={handleCheckboxChange}
+                        />
+                        {service.title}
+                    </span>
+                {/each}
+            </div>
+
+            <input type="text" id="carBrand" bind:value={carBrand} required placeholder="Značka a model, např.: Ford Mondeo" />
         </div>
-
-        <input type="text" id="carBrand" bind:value={carBrand} required placeholder="Značka a model, např.: Ford Mondeo" />
-
         <button class="button-outline" type="submit">Objednat</button>
     </form>
 </div>
 
 <style lang="scss">
-    form {
+  .form-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    gap: 16px;
+  }
+    .form-content-wrapper {
       display: flex;
       flex-direction: column;
       gap: 16px;
