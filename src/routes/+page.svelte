@@ -12,12 +12,12 @@
         background-image:
                 radial-gradient(
                         circle at 90% 10%,
-                        hsl(210, 100%, 20%) 0%,
+                        hsl(209, 100%, 30%) 0%,
                         transparent 60%
                 ),
                 radial-gradient(
                         circle at 10% 90%,
-                        hsl(210, 100%, 18%) 0%,
+                        hsl(287, 100%, 18%) 0%,
                         transparent 70%
                 ),
                 radial-gradient(
