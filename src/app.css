@@ -141,6 +141,7 @@ html {
 
 
 a, button, input, textarea {
+    touch-action: manipulation;
     outline-color: transparent;
     border-radius: 10px;
     &:focus, &:active {
