@@ -1,16 +1,15 @@
 <script>
-
-import StatsCard from "../StatsCard.svelte";
+  import StatsCard from '../StatsCard.svelte';
 </script>
 
 <div class="gallery">
-    <div class="gallery-container">
-        <h2 class="heading">Naše práce</h2>
-        <p class="subheading">Podívejte se na proměnu, kterou přinášíme každým detailem</p>
-        <div class="gallery-wrapper">
-            <StatsCard />
-        </div>
+  <div class="gallery-container">
+    <h2 class="heading">Naše práce</h2>
+    <p class="subheading">Podívejte se na proměnu, kterou přinášíme každým detailem</p>
+    <div class="gallery-wrapper">
+      <StatsCard />
     </div>
+  </div>
 </div>
 
 <style lang="scss">

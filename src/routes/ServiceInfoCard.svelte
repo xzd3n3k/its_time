@@ -1,73 +1,67 @@
 <script lang="ts">
-    interface PriceListItem {
-        variant: string,
-        price: string,
-    }
+  interface PriceListItem {
+    variant: string;
+    price: string;
+  }
 
-    let {
-        title,
-        subtitle,
-        priceList,
-        taskList,
-        price,
-        icon,
-    }: {
-        title?: string,
-        subtitle?:string,
-        priceList?: PriceListItem[],
-        taskList?: string[],
-        price?: string,
-        icon?: string,
-    } = $props();
+  let {
+    title,
+    subtitle,
+    priceList,
+    taskList,
+    price,
+    icon,
+  }: {
+    title?: string;
+    subtitle?: string;
+    priceList?: PriceListItem[];
+    taskList?: string[];
+    price?: string;
+    icon?: string;
+  } = $props();
 </script>
 
 <div class="card-container">
-    {#if icon}
-        <div class="icon-wrapper">
-            <img
-                    src="/{icon}.svg"
-                    width="24"
-                    height="24"
-                    alt="icon-{icon}"
-            />
-        </div>
-    {/if}
-
-    <div class="card-content-container">
-        {#if title}
-            <div class="card-header">
-                <h3>{title}</h3>
-            </div>
-        {/if}
-        {#if subtitle}
-            <div class="card-content">
-                {subtitle}
-            </div>
-        {/if}
-        {#if priceList?.length}
-            <div class="price-list-items">
-                {#each priceList as priceListItem, i (i)}
-                    <div class="card-content price-list-item">
-                        <span>{priceListItem.variant}</span>
-                        <span class="price">{priceListItem.price}</span>
-                    </div>
-                {/each}
-            </div>
-        {/if}
-        {#if taskList?.length}
-            <hr>
-            <ul class="task-list">
-                {#each taskList as taskListItem, i (i)}
-                    <li>
-                        <span class="task-bullet">•</span>
-                        <span>{taskListItem}</span>
-                    </li>
-                {/each}
-            </ul>
-        {/if}
-        <span class="price">{price}</span>
+  {#if icon}
+    <div class="icon-wrapper">
+      <img src="/{icon}.svg" width="24" height="24" alt="icon-{icon}" />
     </div>
+  {/if}
 
+  <div class="card-content-container">
+    {#if title}
+      <div class="card-header">
+        <h3>{title}</h3>
+      </div>
+    {/if}
+    {#if subtitle}
+      <div class="card-content">
+        {subtitle}
+      </div>
+    {/if}
+    {#if priceList?.length}
+      <div class="price-list-items">
+        {#each priceList as priceListItem, i (i)}
+          <div class="card-content price-list-item">
+            <span>{priceListItem.variant}</span>
+            <span class="price">{priceListItem.price}</span>
+          </div>
+        {/each}
+      </div>
+    {/if}
+    {#if taskList?.length}
+      <hr />
+      <ul class="task-list">
+        {#each taskList as taskListItem, i (i)}
+          <li>
+            <span class="task-bullet">•</span>
+            <span>{taskListItem}</span>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+    <span class="price">{price}</span>
+  </div>
 </div>
 
 <style lang="scss">
@@ -87,8 +81,11 @@
     border-radius: 0.75rem;
     padding: 1.5rem;
     background-image: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 10%) 100%);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s,
+      border-color 0.3s;
     cursor: default;
 
     &:hover {
@@ -141,7 +138,7 @@
     .task-bullet {
       font-family: Inter, system-ui, sans-serif;
       color: var(--color-accent);
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
 
