@@ -41,7 +41,7 @@
     <p class="subheading">Připraveni dopřát svému vozidlu péči, kterou si zaslouží? Kontaktujte nás ještě dnes</p>
     <div class="contacts-wrapper">
       <div class="contact-form">
-        <h3 class="title">Napiště nám</h3>
+        <h3 class="form-title">Napiště nám</h3>
         <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
         <input type="text" placeholder="Jméno" bind:value={name} />
         <input type="email" placeholder="Email" bind:value={email} />
@@ -135,7 +135,7 @@
       min-height: 120px;
     }
 
-    .title {
+    .form-title {
       color: var(--color-text-primary);
     }
 
