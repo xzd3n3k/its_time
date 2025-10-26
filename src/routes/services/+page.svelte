@@ -113,10 +113,6 @@
 </div>
 
 <style lang="scss">
-  :global(html),
-  :global(body) {
-    background-color: hsl(220 25% 12%);
-  }
   .services {
     background-image: linear-gradient(
       135deg,
