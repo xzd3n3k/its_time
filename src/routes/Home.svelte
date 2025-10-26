@@ -6,7 +6,7 @@
     <h1>Prémiový Auto Detailing</h1>
     <p>
         Proměňte své vozidlo pomocí profesionálního detailingového servisu,
-        který obnoví a ochrání jeho krásu.
+        který obnoví a ochrání jeho krásu
     </p>
     <div class="home-buttons">
         <button class="button-primary" on:click={() => goto("/contacts")}

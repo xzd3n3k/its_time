@@ -40,7 +40,7 @@ const sendEmail = async () => {
 <div class="contacts">
     <div class="contacts-container">
         <h2 class="heading">Domluvte si svůj termín</h2>
-        <p class="subheading">Připraveni dopřát svému vozidlu péči, kterou si zaslouží? Kontaktujte nás ještě dnes.</p>
+        <p class="subheading">Připraveni dopřát svému vozidlu péči, kterou si zaslouží? Kontaktujte nás ještě dnes</p>
         <div class="contacts-wrapper">
             <div class="contact-form">
                 <h3 class="title">Napiště nám</h3>

@@ -102,7 +102,7 @@
   <div class="services-container">
     <h2 class="heading">Naše služby</h2>
     <p class="subheading">
-      Profesionální detailingové služby přizpůsobené potřebám vašeho vozidla.
+      Profesionální detailingové služby přizpůsobené potřebám vašeho vozidla
     </p>
     <div class="services-wrapper">
         {#each services as serviceItem, i (i)}
