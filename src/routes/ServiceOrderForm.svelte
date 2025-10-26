@@ -1,5 +1,13 @@
 <script lang="ts">
-  export let services = [{ title: 'test' }]; // služby, které si může uživatel vybrat
+  export let services = [
+    { title: 'Ruční mytí vozu' },
+    { title: 'Balíček Standard' },
+    { title: 'Balíček Premium' },
+    { title: 'Voskování vozu' },
+    { title: 'Renovace a leštění laku' },
+    { title: 'Keramická ochrana laku' },
+    { title: 'Dezinfekce ozonem' },
+  ];
   let name = '';
   let email = '';
   let phone = '';
@@ -51,13 +59,13 @@
       <input type="email" id="email" bind:value={email} required placeholder="Email" />
       <input type="tel" id="phone" bind:value={phone} required placeholder="Mobil" />
 
-      <label for="services">Vyberte služby:</label>
-      <div class="services-checkbox">
+      <label class="services-checkbox-label" for="services">Vyberte služby:</label>
+      <div class="services-checkbox" id="services">
         {#each services as service, i (i)}
-          <span class="services-picker">
+          <label class="services-picker">
             <input type="checkbox" value={service.title} on:change={handleCheckboxChange} />
             {service.title}
-          </span>
+          </label>
         {/each}
       </div>
 
@@ -80,6 +88,21 @@
     height: 100%;
     justify-content: space-between;
     gap: 16px;
+
+    .services-checkbox-label {
+      color: var(--color-text-secondary);
+    }
+
+    .services-checkbox {
+      color: var(--color-text-primary);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    label {
+      user-select: none;
+    }
   }
   .form-content-wrapper {
     display: flex;
@@ -89,7 +112,9 @@
     .services-picker {
       display: inline-flex;
       align-items: center;
-      gap: 16px;
+      gap: 8px;
+      cursor: pointer;
+      width: fit-content;
     }
   }
 </style>
