@@ -48,6 +48,10 @@ body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     color: #222;
     font-family: "Titillium Web", sans-serif;
+
+    &.dialog-open {
+        position: fixed;
+    }
 }
 
 #svelte {

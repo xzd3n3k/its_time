@@ -11,7 +11,7 @@ export let onClick = (): void => {
     open = !open
 }
 let isMobile: boolean = false;
-let dialog: HTMLDialogElement;
+let dialogComponent: Dialog;
 let hasMounted: boolean = false;
 
 onMount(() => {
@@ -32,7 +32,7 @@ function openModal() {
 
     // wait until navbar closing animation is completed
     requestAnimationFrame(() => {
-        dialog.showModal();
+        dialogComponent.open();
     });
 }
 
@@ -70,7 +70,7 @@ function openModal() {
     </nav>
 {/if}
 
-<Dialog bind:dialog>
+<Dialog bind:this={dialogComponent}>
     <ServiceOrderForm />
 </Dialog>
 

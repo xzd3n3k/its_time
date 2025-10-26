@@ -1,9 +1,15 @@
 <script lang="ts">
-    export let dialog: HTMLDialogElement;
+    let dialog: HTMLDialogElement;
     export let title = '';
     export let showClose = true;
 
+    export function open() {
+        dialog.showModal();
+        document.body.classList.add('dialog-open');
+    }
+
     function close() {
+        document.body.classList.remove('dialog-open');
         dialog.close();
     }
 </script>
@@ -113,6 +119,7 @@
     .dialog-content {
         padding: 1rem 2rem;
         overflow-y: auto;
+        height: 100%;
     }
 
     .dialog-footer {
