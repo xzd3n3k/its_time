@@ -201,7 +201,7 @@
       justify-content: center;
 
       .title {
-        display: none;
+        display: none !important;
       }
 
       .buttons {
