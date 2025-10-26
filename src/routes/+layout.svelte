@@ -1,5 +1,5 @@
 <script lang="ts">
-  import favicon from '$lib/assets/favicon.svg';
+  import favicon_logo from '$lib/assets/favicon_logo.svg';
   import '../app.css';
   import Navbar from './Navbar.svelte';
   import { Toaster } from 'svelte-sonner';
@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href={favicon_logo} />
   {#each icons as icon, i (i)}
     <link rel="preload" as="image" href={icon} />
   {/each}
