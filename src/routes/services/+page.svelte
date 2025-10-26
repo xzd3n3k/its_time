@@ -122,7 +122,7 @@
   }
 
   .services-container {
-    padding: 160px 14px 14px;
+    padding: var(--navbar-height) 14px 14px;
     max-height: 100%;
     overflow: auto;
     display: flex;

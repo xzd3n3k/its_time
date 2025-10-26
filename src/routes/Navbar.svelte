@@ -151,9 +151,6 @@
       display: inline-flex !important;
     }
 
-    .mobile-menu-toggle-button {
-      display: inline-block !important;
-    }
     nav {
       position: absolute;
       width: 100%;
