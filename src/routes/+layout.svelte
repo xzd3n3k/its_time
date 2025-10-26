@@ -7,7 +7,7 @@
   let { children } = $props();
 
   const iconsAndImages = [
-    '/red_audi_back.jpeg',
+    '/audi_rs8_spz.jpg',
     '/phone.svg',
     '/email.svg',
     '/location.svg',
