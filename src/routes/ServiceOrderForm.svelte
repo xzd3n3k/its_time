@@ -46,7 +46,7 @@
     <h2>Objednávka služby</h2>
 
     <form on:submit|preventDefault={handleSubmit}>
-        <input type="text" id="name" bind:value={name} required placeholder="Jméno" />
+        <input type="text" id="name" bind:value={name} required placeholder="Jméno" autofocus />
         <input type="email" id="email" bind:value={email} required placeholder="Email" />
         <input type="tel" id="phone" bind:value={phone} required placeholder="Mobil" />
 
