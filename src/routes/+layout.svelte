@@ -28,9 +28,9 @@
   {#each icons as icon, i (i)}
     <link rel="preload" as="image" href={icon} />
   {/each}
-  {#each images as image, i (i)}
-    <link rel="prefetch" as="image" href={image} />
-  {/each}
+  <!--{#each images as image, i (i)}-->
+  <!--  <link rel="prefetch" as="image" href={image} />-->
+  <!--{/each}-->
 </svelte:head>
 
 <Navbar></Navbar>
