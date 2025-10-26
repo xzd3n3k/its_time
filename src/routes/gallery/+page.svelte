@@ -1,5 +1,33 @@
 <script>
   import StatsCard from '../StatsCard.svelte';
+  import { onMount } from 'svelte';
+
+  const images = [
+    { src: '/audi_rs8_spz.jpg', label: 'Audi RS8', description: 'Kompletní mytí + keramická ochrana' },
+    { src: '/audi_rs8_interior.jpg', label: 'Audi RS8', description: 'Kompletní čištění interiéru + impregnace kůže' },
+    { src: '/audi_rs3_spz.jpeg', label: 'Audi RS3', description: 'Kompletní mytí + keramická ochrana' },
+    { src: '/audi_rs3_wheel.jpg', label: 'Audi RS3', description: 'Kompletní dekontaminace kol + keramická ochrana' },
+    { src: '/nissan_gtr_spz.jpeg', label: 'Nissan GTR', description: 'Renovace laku + keramická ochrana' },
+    { src: '/mercedes_a180_spz.jpeg', label: 'Mercedes Benz A180', description: 'Kompletní mytí + vosk' },
+    { src: '/mercedes_a180_interior.jpg', label: 'Mercedes Benz A180', description: 'Hloubkové čištění interiéru' },
+  ];
+
+  let imagesLoaded = false;
+
+  onMount(async () => {
+    await Promise.all(
+      images.map(
+        (image) =>
+          new Promise((res) => {
+            const img = new Image();
+            img.src = image.src;
+            img.onload = () => res(true);
+          }),
+      ),
+    );
+
+    imagesLoaded = true;
+  });
 </script>
 
 <div class="gallery">
@@ -9,63 +37,19 @@
     <div class="gallery-wrapper">
       <StatsCard />
 
-      <div class="images-wrapper">
-        <div class="image-card">
-          <img src="/audi_rs8_spz.jpg" alt="Audi RS8" />
-          <div class="overlay">
-            <h3>Audi RS8</h3>
-            <p>Kompletní mytí + keramická ochrana</p>
-          </div>
+      {#if imagesLoaded}
+        <div class="images-wrapper">
+          {#each images as image, i (i)}
+            <div class="image-card">
+              <img src={image.src} alt={image.label} />
+              <div class="overlay">
+                <h3>{image.label}</h3>
+                <p>{image.description}</p>
+              </div>
+            </div>
+          {/each}
         </div>
-
-        <div class="image-card">
-          <img src="/audi_rs8_interior.jpg" alt="Audi RS8" />
-          <div class="overlay">
-            <h3>Audi RS8</h3>
-            <p>Kompletní čištění interiéru + impregnace kůže</p>
-          </div>
-        </div>
-
-        <div class="image-card">
-          <img src="/audi_rs3_spz.jpeg" alt="Audi RS3" />
-          <div class="overlay">
-            <h3>Audi RS3</h3>
-            <p>Kompletní mytí + keramická ochrana</p>
-          </div>
-        </div>
-
-        <div class="image-card">
-          <img src="/audi_rs3_wheel.jpg" alt="Audi RS3" />
-          <div class="overlay">
-            <h3>Audi RS3</h3>
-            <p>Kompletní dekontaminace kol + keramická ochrana</p>
-          </div>
-        </div>
-
-        <div class="image-card">
-          <img src="/nissan_gtr_spz.jpeg" alt="Nissan GTR" />
-          <div class="overlay">
-            <h3>Nissan GTR</h3>
-            <p>Renovace laku + keramická ochrana</p>
-          </div>
-        </div>
-
-        <div class="image-card">
-          <img src="/mercedes_a180_spz.jpeg" alt="Mercedes Benz A180" />
-          <div class="overlay">
-            <h3>Mercedes Benz A180</h3>
-            <p>Kompletní mytí + vosk</p>
-          </div>
-        </div>
-
-        <div class="image-card">
-          <img src="/mercedes_a180_interior.jpg" alt="Mercedes Benz A180" />
-          <div class="overlay">
-            <h3>Mercedes Benz A180</h3>
-            <p>Hloubkové čištění interiéru</p>
-          </div>
-        </div>
-      </div>
+      {/if}
     </div>
   </div>
 </div>

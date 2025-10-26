@@ -19,25 +19,12 @@
     '/ozone_disinfection.svg',
     '/logo_zakladni.svg',
   ];
-
-  const images = [
-    '/audi_rs8_spz.jpg',
-    '/audi_rs8_interior.jpg',
-    '/audi_rs3_spz.jpeg',
-    '/audi_rs3_wheel.jpg',
-    '/nissan_gtr_spz.jpeg',
-    '/mercedes_a180_spz.jpeg',
-    '/mercedes_a180_interior.jpg',
-  ];
 </script>
 
 <svelte:head>
   <link rel="icon" href={favicon} />
   {#each icons as icon, i (i)}
     <link rel="preload" as="image" href={icon} />
-  {/each}
-  {#each images as image, i (i)}
-    <link rel="prefetch" as="image" href={image} />
   {/each}
 </svelte:head>
 
