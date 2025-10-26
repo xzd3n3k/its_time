@@ -12,21 +12,17 @@
     { src: '/mercedes_a180_interior.jpg', label: 'Mercedes Benz A180', description: 'Hloubkové čištění interiéru' },
   ];
 
-  let imagesLoaded = false;
+  let loaded = new Array(images.length).fill(false);
 
-  onMount(async () => {
-    await Promise.all(
-      images.map(
-        (image) =>
-          new Promise((res) => {
-            const img = new Image();
-            img.src = image.src;
-            img.onload = () => res(true);
-          }),
-      ),
-    );
-
-    imagesLoaded = true;
+  onMount(() => {
+    images.forEach((image, i) => {
+      const img = new Image();
+      img.src = image.src;
+      img.onload = () => {
+        loaded[i] = true;
+        loaded = [...loaded];
+      };
+    });
   });
 </script>
 
@@ -37,19 +33,22 @@
     <div class="gallery-wrapper">
       <StatsCard />
 
-      {#if imagesLoaded}
-        <div class="images-wrapper">
-          {#each images as image, i (i)}
-            <div class="image-card">
+      <div class="images-wrapper">
+        {#each images as image, i (i)}
+          <div class="image-card">
+            {#if loaded[i]}
               <img src={image.src} alt={image.label} />
-              <div class="overlay">
-                <h3>{image.label}</h3>
-                <p>{image.description}</p>
-              </div>
+            {:else}
+              <div class="placeholder"></div>
+            {/if}
+
+            <div class="overlay">
+              <h3>{image.label}</h3>
+              <p>{image.description}</p>
             </div>
-          {/each}
-        </div>
-      {/if}
+          </div>
+        {/each}
+      </div>
     </div>
   </div>
 </div>
@@ -71,6 +70,26 @@
       transition:
         transform 0.4s ease,
         filter 0.4s ease;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #222 0%, #333 100%);
+      animation: pulse 1.5s ease-in-out infinite;
+      border-radius: 8px;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.6;
+      }
     }
 
     .overlay {
