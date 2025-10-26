@@ -5,6 +5,9 @@
   import { onMount } from 'svelte';
   import Dialog from '../Dialog.svelte';
   import ServiceOrderForm from './ServiceOrderForm.svelte';
+  import { navbarTitle } from '$lib/stores/navbarTitle';
+
+  $: title = $navbarTitle;
 
   export let open = false;
   export let onClick = (): void => {
@@ -47,6 +50,10 @@
       <a class="logo-wrapper-anchor" href="/">
         <img src="/logo_zakladni.svg" width="125" height="120" alt="logo" />
       </a>
+      <div class="title-text">
+        <h2>{title.heading}</h2>
+        <p>{title.text}</p>
+      </div>
     </div>
     <div class="buttons-container">
       <div class="buttons">
@@ -77,6 +84,27 @@
       flex: 4;
       font-weight: bold;
       align-self: center;
+      display: inline-flex;
+      gap: 48px;
+      padding-right: 48px;
+
+      .title-text {
+        display: flex;
+        flex-direction: column;
+        font-weight: normal;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 2.1rem;
+        }
+
+        p {
+          font-size: 16px;
+          text-align: justify;
+          width: 90%;
+          margin-bottom: 0;
+        }
+      }
 
       .logo-wrapper-anchor {
         display: inline-flex;
@@ -144,6 +172,14 @@
     position: absolute !important;
     left: 15px !important;
     top: 15px !important;
+  }
+
+  @media only screen and (max-width: 1080px) {
+    .title-text {
+      h2 {
+        font-size: 1.7rem !important;
+      }
+    }
   }
 
   @media only screen and (max-width: 1024px) {
