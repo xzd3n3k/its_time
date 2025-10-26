@@ -34,6 +34,6 @@
         background-repeat: no-repeat;
         background-blend-mode: overlay;
         width: 100vw;
-        height: 100vh;
+        height: 100%;
     }
 </style>
