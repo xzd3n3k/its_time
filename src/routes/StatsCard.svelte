@@ -5,9 +5,9 @@
 
   const stats = [
     { label: 'Realizovaných zakázek', value: 360 },
-    { label: 'Hodin ročně strávených čištěním vozidel', value: 1200 },
     { label: 'Stálých klientů', value: 80 },
     { label: 'Let zkušeností', value: 10 },
+    { label: 'Průměrné hodnocení', value: 5 },
   ];
 
   let counter1 = tweened(0, { duration: 2000, easing: cubicOut });
@@ -30,17 +30,17 @@
   </div>
 
   <div class="stat">
-    <div class="number">{Math.round($counter2)}+</div>
+    <div class="number">{Math.round($counter2)}</div>
     <div class="label">{stats[1].label}</div>
   </div>
 
   <div class="stat">
-    <div class="number">{Math.round($counter3)}</div>
+    <div class="number">{Math.round($counter3)}+</div>
     <div class="label">{stats[2].label}</div>
   </div>
 
   <div class="stat">
-    <div class="number">{Math.round($counter4)}+</div>
+    <div class="number">{$counter4.toFixed(1)}</div>
     <div class="label">{stats[3].label}</div>
   </div>
 </div>
@@ -54,6 +54,10 @@
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+
+    @media only screen and (max-width: 560px) {
+      font-size: 10px;
+    }
   }
 
   .stat {
