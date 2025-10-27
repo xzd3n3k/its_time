@@ -52,12 +52,12 @@
         </button>
       </div>
       <div class="contact-info">
-        <ContactInfoCard header="Mobil" icon="phone">+420 736 682 665</ContactInfoCard>
-        <ContactInfoCard header="Email" icon="email">itstime@premiumwash.cz</ContactInfoCard>
+        <ContactInfoCard header="Mobil" icon="phone">+420 727 964 649</ContactInfoCard>
+        <ContactInfoCard header="Email" icon="email">Na vytvoření emailové schránky se pracuje</ContactInfoCard>
         <ContactInfoCard header="Lokace" icon="location">
           <div class="address">
-            <span>Majorova 1582,</span>
-            <span>666 01 Tisnov</span>
+            <span>Zámecká 33/57,</span>
+            <span>Brno-Chrlice</span>
           </div>
         </ContactInfoCard>
         <ContactInfoCard header="Otevírací doba">
