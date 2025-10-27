@@ -175,7 +175,6 @@
       flex-wrap: wrap;
       gap: 16px;
       justify-content: center;
-      will-change: transform;
     }
   }
 </style>
