@@ -1,26 +1,41 @@
 <script>
   import StatsCard from '../StatsCard.svelte';
   import { onMount } from 'svelte';
+  import { writable } from 'svelte/store';
 
   const images = [
     { src: '/audi_rs8_spz.jpg', label: 'Audi RS8', description: 'Kompletní mytí + keramická ochrana' },
-    { src: '/audi_rs8_interior.jpg', label: 'Audi RS8', description: 'Kompletní čištění interiéru + impregnace kůže' },
-    { src: '/audi_rs3_spz.jpeg', label: 'Audi RS3', description: 'Kompletní mytí + keramická ochrana' },
-    { src: '/audi_rs3_wheel.jpg', label: 'Audi RS3', description: 'Kompletní dekontaminace kol + keramická ochrana' },
+    {
+      src: '/audi_rs8_interior_lowquality.jpeg',
+      label: 'Audi RS8',
+      description: 'Kompletní čištění interiéru + impregnace kůže',
+    },
+    { src: '/audi_rs3_spz.jpeg', label: 'Audi RS5', description: 'Kompletní mytí + keramická ochrana' },
+    {
+      src: '/audi_rs3_wheel_lowquality.jpg',
+      label: 'Audi RS5',
+      description: 'Kompletní dekontaminace kol + keramická ochrana',
+    },
     { src: '/nissan_gtr_spz.jpeg', label: 'Nissan GTR', description: 'Renovace laku + keramická ochrana' },
     { src: '/mercedes_a180_spz.jpeg', label: 'Mercedes Benz A180', description: 'Kompletní mytí + vosk' },
-    { src: '/mercedes_a180_interior.jpg', label: 'Mercedes Benz A180', description: 'Hloubkové čištění interiéru' },
+    {
+      src: '/mercedes_a180_interior_lowquality.jpeg',
+      label: 'Mercedes Benz A180',
+      description: 'Hloubkové čištění interiéru',
+    },
   ];
 
-  let loaded = new Array(images.length).fill(false);
+  const loaded = writable(new Array(images.length).fill(false));
 
   onMount(() => {
     images.forEach((image, i) => {
       const img = new Image();
       img.src = image.src;
       img.onload = () => {
-        loaded[i] = true;
-        loaded = [...loaded];
+        loaded.update((arr) => {
+          arr[i] = true;
+          return arr;
+        });
       };
     });
   });
@@ -36,8 +51,8 @@
       <div class="images-wrapper">
         {#each images as image, i (i)}
           <div class="image-card">
-            {#if loaded[i]}
-              <img src={image.src} alt={image.label} />
+            {#if $loaded[i]}
+              <img src={image.src} alt={image.label} loading="lazy" />
             {:else}
               <div class="placeholder"></div>
             {/if}
