@@ -4,7 +4,11 @@
 
 <div class="home-page">
   <img src="/logo_zakladni.svg" width="325" height="312" alt="logo" />
-  <p>Proměňte své vozidlo pomocí profesionálního detailingového servisu, který obnoví a ochrání jeho krásu</p>
+  <h3 class="heading">Je čas vrátit vašemu autu jeho krásu a eleganci.</h3>
+  <p class="subheading-text">
+    jsme It’s Time, detailingová služba pro všechny, kdo chtějí, aby jejich vůz vypadal skvěle každý den. Od mytí až po
+    finální lesk – děláme maximum pro to, aby vaše auto bylo vždy připravené udělat dojem.
+  </p>
   <div class="home-buttons">
     <button class="button-primary" on:click={() => goto('/contacts')}>Domluvit si termín</button>
     <button class="button-outline" on:click={() => goto('/services')}>Nabídka služeb</button>
@@ -29,8 +33,24 @@
     height: 100%;
     flex-direction: column;
 
+    .subheading-text {
+      width: 50%;
+      text-align: justify;
+    }
+
     h1 {
       text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
+    .subheading-text {
+      width: 100% !important;
+      padding: 0 16px;
+    }
+
+    .heading {
+      padding: 0 16px;
     }
   }
 </style>

@@ -247,14 +247,17 @@ h3 {
 }
 p {
     color: rgb(177, 177, 177);
-    font-size: 1.3rem;
-    width: 50%;
+    width: 100%;
     text-align: center;
     margin-bottom: 24px;
 }
 .heading, .subheading {
     width: 100%;
     text-align: center;
+}
+
+.subheading {
+    font-size: 1.3rem;
 }
 
 .mobile-menu-toggle-button {
