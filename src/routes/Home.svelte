@@ -3,7 +3,7 @@
 </script>
 
 <div class="home-page">
-  <h1>Prémiový Auto Detailing</h1>
+  <img src="/logo_zakladni.svg" width="325" height="312" alt="logo" />
   <p>Proměňte své vozidlo pomocí profesionálního detailingového servisu, který obnoví a ochrání jeho krásu</p>
   <div class="home-buttons">
     <button class="button-primary" on:click={() => goto('/contacts')}>Domluvit si termín</button>

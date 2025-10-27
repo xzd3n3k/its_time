@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import { slide } from 'svelte/transition';
   import AnimatedHamburger from '../AnimatedHamburger.svelte';
   import { cubicOut } from 'svelte/easing';
@@ -40,16 +41,21 @@
   }
 </script>
 
-<a class="logo-mobile-version" href="/">
-  <img src="/logo_zakladni.svg" width="62" height="60" alt="logo" />
-</a>
+{#if $page.url.pathname !== '/'}
+  <a class="logo-mobile-version" href="/">
+    <img src="/logo_zakladni.svg" width="62" height="60" alt="logo" />
+  </a>
+{/if}
+
 <AnimatedHamburger customClass="mobile-menu-toggle-button" width="48" {open} {onClick} />
 {#if hasMounted && (open || !isMobile)}
   <nav class="navigation-container" transition:slide={{ duration: 400, easing: cubicOut }}>
     <div class="title">
-      <a class="logo-wrapper-anchor" href="/">
-        <img src="/logo_zakladni.svg" width="125" height="120" alt="logo" />
-      </a>
+      {#if $page.url.pathname !== '/'}
+        <a class="logo-desktop-version" href="/">
+          <img src="/logo_zakladni.svg" width="62" height="60" alt="logo" />
+        </a>
+      {/if}
       <div class="title-text">
         <h2>{title.heading}</h2>
         <p>{title.text}</p>
@@ -106,18 +112,13 @@
         }
       }
 
-      .logo-wrapper-anchor {
+      .logo-desktop-version {
         display: inline-flex;
       }
+
       img {
-        background-color: rgba(0, 63, 145, 0.158);
         border-radius: 10%;
         padding: 8px;
-        transition: filter 0.3s;
-        &:hover {
-          filter: brightness(140%);
-          cursor: pointer;
-        }
       }
     }
 
