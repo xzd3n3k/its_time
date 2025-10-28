@@ -82,22 +82,26 @@
     overflow: hidden;
     border-radius: 8px;
     cursor: pointer;
-    //transition: transform 0.3s ease;
+    contain: layout paint;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      //transition:
-      //  transform 0.4s ease,
-      //  filter 0.4s ease;
+
+      transform: translateZ(0);
+      will-change: transform, filter;
+      backface-visibility: hidden;
+      transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
     }
 
     .placeholder {
       width: 100%;
       height: 100%;
       background: linear-gradient(135deg, #222 0%, #333 100%);
-      //animation: pulse 1.5s ease-in-out infinite;
+      animation: pulse 1.5s ease-in-out infinite;
       border-radius: 8px;
     }
 
