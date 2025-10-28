@@ -1,7 +1,6 @@
 <script>
   import StatsCard from '../StatsCard.svelte';
-  import { onDestroy, onMount } from 'svelte';
-  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
 
   const images = [
     { src: '/audi_rs8_spz.jpg', label: 'Audi RS8', description: 'Kompletní mytí + keramická ochrana' },
@@ -25,25 +24,21 @@
     },
   ];
 
-  const loaded = writable(new Array(images.length).fill(false));
+  let imagesLoaded = false;
 
-  onMount(() => {
-    images.forEach((image, i) => {
-      setTimeout(() => {
-        const img = new Image();
-        img.src = image.src;
-        img.onload = () => {
-          loaded.update((arr) => {
-            arr[i] = true;
-            return arr;
-          });
-        };
-      }, i * 150);
-    });
-  });
+  onMount(async () => {
+    await Promise.all(
+      images.map(
+        (image) =>
+          new Promise((res) => {
+            const img = new Image();
+            img.src = image.src;
+            img.onload = () => res(true);
+          }),
+      ),
+    );
 
-  onDestroy(() => {
-    performance.clearResourceTimings();
+    imagesLoaded = true;
   });
 </script>
 
@@ -55,20 +50,19 @@
       <StatsCard />
 
       <div class="images-wrapper">
-        {#each images as image, i (i)}
-          <div class="image-card">
-            {#if $loaded[i]}
+        {#if imagesLoaded}
+          {#each images as image, i (i)}
+            <div class="image-card">
               <img src={image.src} alt={image.label} />
-            {:else}
-              <div class="placeholder"></div>
-            {/if}
-
-            <div class="overlay">
-              <h3>{image.label}</h3>
-              <p>{image.description}</p>
+              <div class="overlay">
+                <h3>{image.label}</h3>
+                <p>{image.description}</p>
+              </div>
             </div>
-          </div>
-        {/each}
+          {/each}
+        {:else}
+          <div class="placeholder"></div>
+        {/if}
       </div>
     </div>
   </div>
