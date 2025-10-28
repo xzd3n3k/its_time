@@ -54,7 +54,7 @@
         {#each images as image, i (i)}
           <div class="image-card">
             {#if $loaded[i]}
-              <img src={image.src} alt={image.label} loading="lazy" />
+              <img src={image.src} alt={image.label} />
             {:else}
               <div class="placeholder"></div>
             {/if}
