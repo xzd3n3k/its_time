@@ -69,6 +69,15 @@
 </div>
 
 <style lang="scss">
+  .placeholder {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, #222 0%, #333 100%);
+    animation: pulse 1.5s ease-in-out infinite;
+    border-radius: 8px;
+  }
+
   .image-card {
     position: relative;
     width: 320px;
@@ -89,14 +98,6 @@
       transition:
         transform 0.4s ease,
         filter 0.4s ease;
-    }
-
-    .placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #222 0%, #333 100%);
-      animation: pulse 1.5s ease-in-out infinite;
-      border-radius: 8px;
     }
 
     @keyframes pulse {
