@@ -1,15 +1,18 @@
 <script>
   import { goto } from '$app/navigation';
+  import { fly } from 'svelte/transition';
 </script>
 
 <div class="home-page">
-  <img src="/logo_zakladni.svg" width="325" height="312" alt="logo" />
-  <h3 class="heading">Je čas vrátit vašemu autu jeho krásu a eleganci.</h3>
-  <p class="subheading-text">
+  <img src="/logo_zakladni.svg" width="325" height="312" alt="logo" in:fly={{ x: 200, duration: 800, opacity: 0 }} />
+  <h3 class="heading" in:fly={{ x: -200, duration: 800, delay: 100 }}>
+    Je čas vrátit vašemu autu jeho krásu a eleganci.
+  </h3>
+  <p class="subheading-text" in:fly={{ x: -200, duration: 800, delay: 100 }}>
     jsme It’s Time, detailingová služba pro všechny, kdo chtějí, aby jejich vůz vypadal skvěle každý den. Od mytí až po
     finální lesk – děláme maximum pro to, aby vaše auto bylo vždy připravené udělat dojem.
   </p>
-  <div class="home-buttons">
+  <div class="home-buttons" in:fly={{ y: 100, duration: 800, delay: 500 }}>
     <button class="button-primary" on:click={() => goto('/contacts')}>Domluvit si termín</button>
     <button class="button-outline" on:click={() => goto('/services')}>Nabídka služeb</button>
   </div>
