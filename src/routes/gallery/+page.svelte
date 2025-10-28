@@ -76,6 +76,7 @@
     overflow: hidden;
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 
     img {
       width: 100%;
@@ -118,9 +119,9 @@
       align-items: center;
       text-align: center;
       padding: 8px;
-      //transition:
-      //  background 0.3s ease,
-      //  opacity 0.3s ease;
+      transition:
+        background 0.3s ease,
+        opacity 0.3s ease;
       pointer-events: none;
     }
 
