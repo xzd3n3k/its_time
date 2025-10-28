@@ -29,14 +29,16 @@
 
   onMount(() => {
     images.forEach((image, i) => {
-      const img = new Image();
-      img.src = image.src;
-      img.onload = () => {
-        loaded.update((arr) => {
-          arr[i] = true;
-          return arr;
-        });
-      };
+      setTimeout(() => {
+        const img = new Image();
+        img.src = image.src;
+        img.onload = () => {
+          loaded.update((arr) => {
+            arr[i] = true;
+            return arr;
+          });
+        };
+      }, i * 150);
     });
   });
 </script>
