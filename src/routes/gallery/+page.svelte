@@ -1,7 +1,6 @@
 <script>
   import StatsCard from '../StatsCard.svelte';
   import { onMount } from 'svelte';
-  import { writable } from 'svelte/store';
 
   const images = [
     { src: '/audi_rs8_spz.jpg', label: 'Audi RS8', description: 'Kompletní mytí + keramická ochrana' },
@@ -25,19 +24,21 @@
     },
   ];
 
-  const loaded = writable(new Array(images.length).fill(false));
+  let imagesLoaded = false;
 
-  onMount(() => {
-    images.forEach((image, i) => {
-      const img = new Image();
-      img.src = image.src;
-      img.onload = () => {
-        loaded.update((arr) => {
-          arr[i] = true;
-          return arr;
-        });
-      };
-    });
+  onMount(async () => {
+    await Promise.all(
+      images.map(
+        (image) =>
+          new Promise((res) => {
+            const img = new Image();
+            img.src = image.src;
+            img.onload = () => res(true);
+          }),
+      ),
+    );
+
+    imagesLoaded = true;
   });
 </script>
 
@@ -49,26 +50,34 @@
       <StatsCard />
 
       <div class="images-wrapper">
-        {#each images as image, i (i)}
-          <div class="image-card">
-            {#if $loaded[i]}
-              <img src={image.src} alt={image.label} loading="lazy" />
-            {:else}
-              <div class="placeholder"></div>
-            {/if}
-
-            <div class="overlay">
-              <h3>{image.label}</h3>
-              <p>{image.description}</p>
+        {#if imagesLoaded}
+          {#each images as image, i (i)}
+            <div class="image-card">
+              <img src={image.src} alt={image.label} />
+              <div class="overlay">
+                <h3>{image.label}</h3>
+                <p>{image.description}</p>
+              </div>
             </div>
-          </div>
-        {/each}
+          {/each}
+        {:else}
+          <div class="placeholder"></div>
+        {/if}
       </div>
     </div>
   </div>
 </div>
 
 <style lang="scss">
+  .placeholder {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, #222 0%, #333 100%);
+    animation: pulse 1.5s ease-in-out infinite;
+    border-radius: 8px;
+  }
+
   .image-card {
     position: relative;
     width: 320px;
@@ -76,23 +85,19 @@
     overflow: hidden;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    contain: layout paint;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+
+      transform: translateZ(0);
+      will-change: transform, filter;
+      backface-visibility: hidden;
       transition:
         transform 0.4s ease,
         filter 0.4s ease;
-    }
-
-    .placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #222 0%, #333 100%);
-      animation: pulse 1.5s ease-in-out infinite;
-      border-radius: 8px;
     }
 
     @keyframes pulse {
@@ -119,9 +124,9 @@
       align-items: center;
       text-align: center;
       padding: 8px;
-      transition:
-        background 0.3s ease,
-        opacity 0.3s ease;
+      //transition:
+      //  background 0.3s ease,
+      //  opacity 0.3s ease;
       pointer-events: none;
     }
 
@@ -175,7 +180,6 @@
       flex-wrap: wrap;
       gap: 16px;
       justify-content: center;
-      will-change: transform;
     }
   }
 </style>
