@@ -54,7 +54,6 @@
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    will-change: transform;
 
     @media only screen and (max-width: 560px) {
       font-size: 10px;
