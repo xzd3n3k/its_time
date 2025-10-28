@@ -1,6 +1,6 @@
 <script>
   import StatsCard from '../StatsCard.svelte';
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { writable } from 'svelte/store';
 
   const images = [
@@ -40,6 +40,10 @@
         };
       }, i * 150);
     });
+  });
+
+  onDestroy(() => {
+    performance.clearResourceTimings();
   });
 </script>
 
