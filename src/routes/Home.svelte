@@ -16,7 +16,7 @@
       Je čas vrátit vašemu autu jeho krásu a eleganci.
     </h3>
     <p class="subheading-text" in:fly={{ x: -200, duration: 800, delay: 100 }}>
-      jsme It’s Time, detailingová služba pro všechny, kdo chtějí, aby jejich vůz vypadal skvěle každý den. Od mytí až po
+      Jsme It’s Time, detailingová služba pro všechny, kdo chtějí, aby jejich vůz vypadal skvěle každý den. Od mytí až po
       finální lesk – děláme maximum pro to, aby vaše auto bylo vždy připravené udělat dojem.
     </p>
     <div class="home-buttons" in:fly={{ y: 100, duration: 800, delay: 500 }}>
