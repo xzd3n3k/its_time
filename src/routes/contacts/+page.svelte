@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import ContactInfoCard from '../ContactInfoCard.svelte';
-  import emailjs from '@emailjs/browser';
   import { writable } from 'svelte/store';
   import { toast } from 'svelte-sonner';
+  import { emailService, type ContactForm } from '../../lib/services/emailService';
 
   let name = '';
   let email = '';
@@ -13,14 +13,10 @@
 
   const sendEmail = async () => {
     sending.set(true);
+    const form: ContactForm = { name, email, message };
 
     try {
-      await emailjs.send(
-        'service_j1fjx83', // service_id
-        'template_gx98vgi', // template_id
-        { name, email, phone, message },
-        'L0ZmjGDvgMkuH3y-t', // public_key
-      );
+      await emailService.sendEmail(form);
       toast.success('Email byl úspěšně odeslán.', { class: 'toast--success' });
       name = '';
       email = '';
