@@ -4,7 +4,7 @@ export interface ContactForm {
   message: string;
 }
 
-const API_URL = 'https://itstime-be.onrender.com/send-email';
+const API_URL = 'https://hypextream.pythonanywhere.com/send-email';
 
 export const emailService = {
   sendEmail: async (form: ContactForm) => {
