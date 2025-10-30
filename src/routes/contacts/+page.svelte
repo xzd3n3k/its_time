@@ -15,6 +15,13 @@
     sending.set(true);
     const form: ContactForm = { name, email, phone, message };
 
+    if (!form.name || !form.email || !form.message) {
+      toast.error('Musí být vyplněné Jméno, Email a Text zprávy!');
+      sending.set(false);
+
+      return;
+    }
+
     try {
       await emailService.sendEmail(form);
       toast.success('Email byl úspěšně odeslán.', { class: 'toast--success' });
@@ -39,12 +46,11 @@
       <div class="contact-form">
         <h3 class="form-title">Napiště nám</h3>
         <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
-        <input type="text" placeholder="Jméno" required bind:value={name} disabled={$sending} />
-        <input type="email" placeholder="Email" required bind:value={email} disabled={$sending} />
+        <input type="text" placeholder="Jméno" bind:value={name} disabled={$sending} />
+        <input type="email" placeholder="Email" bind:value={email} disabled={$sending} />
         <input type="tel" placeholder="Mobil" bind:value={phone} disabled={$sending} />
         <textarea
           placeholder="Napiště něco o svém vozidle a potřebných službách"
-          required
           bind:value={message}
           disabled={$sending}
         ></textarea>
