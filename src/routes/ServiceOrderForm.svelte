@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { writable } from 'svelte/store';
+  import { emailService } from '$lib/services/emailService';
+  import { toast } from 'svelte-sonner';
+
   export let services = [
     { title: 'Ruční mytí vozu' },
     { title: 'Balíček Standard' },
@@ -12,32 +16,36 @@
   let email = '';
   let phone = '';
   let selectedServices: string[] = [];
-  let carBrand = '';
-  let carVariant = '';
+  let car = '';
 
-  const handleSubmit = () => {
-    if (!name || !email || !phone || !selectedServices.length || !carBrand || !carVariant) {
+  let sending = writable(false);
+
+  const handleSubmit = async () => {
+    if (!name || !email || !selectedServices.length || !car) {
       return;
     }
+
+    let message = '';
+
+    message += 'Vozidlo: ' + car;
+    message += selectedServices.join('\n');
 
     const formData = {
       name,
       email,
       phone,
-      selectedServices,
-      carBrand,
-      carVariant,
+      message,
     };
 
-    console.log('Formulář odeslán:', formData);
-    resetForm();
-  };
-
-  const handleCheckboxChange = (event: any) => {
-    if (event.target.checked) {
-      selectedServices = [...selectedServices, event.target.value];
-    } else {
-      selectedServices = selectedServices.filter((service) => service !== event.target.value);
+    try {
+      await emailService.sendEmail(formData);
+      toast.success('Email byl úspěšně odeslán.', { class: 'toast--success' });
+      resetForm();
+    } catch (error) {
+      console.error(error);
+      toast.error('Došlo k chybě při odesílání.', { class: 'toast--error' });
+    } finally {
+      sending.set(false);
     }
   };
 
@@ -46,7 +54,7 @@
     email = '';
     phone = '';
     selectedServices = [];
-    carBrand = '';
+    car = '';
   };
 </script>
 
@@ -57,19 +65,19 @@
     <div class="form-content-wrapper">
       <input type="text" id="name" bind:value={name} required placeholder="Jméno" autofocus />
       <input type="email" id="email" bind:value={email} required placeholder="Email" />
-      <input type="tel" id="phone" bind:value={phone} required placeholder="Mobil" />
+      <input type="tel" id="phone" bind:value={phone} placeholder="Mobil" />
 
       <label class="services-checkbox-label" for="services">Vyberte služby:</label>
       <div class="services-checkbox" id="services">
         {#each services as service, i (i)}
           <label class="services-picker">
-            <input type="checkbox" value={service.title} on:change={handleCheckboxChange} />
+            <input type="checkbox" value={service.title} bind:group={selectedServices} />
             {service.title}
           </label>
         {/each}
       </div>
 
-      <input type="text" id="carBrand" bind:value={carBrand} required placeholder="Značka a model, např.: Ford Mondeo" />
+      <input type="text" id="car" bind:value={car} required placeholder="Značka a model, např.: Ford Mondeo" />
     </div>
     <button class="button-outline" type="submit">Objednat</button>
   </form>
