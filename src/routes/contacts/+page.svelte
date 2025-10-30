@@ -13,7 +13,7 @@
 
   const sendEmail = async () => {
     sending.set(true);
-    const form: ContactForm = { name, email, message };
+    const form: ContactForm = { name, email, phone, message };
 
     try {
       await emailService.sendEmail(form);
@@ -39,10 +39,15 @@
       <div class="contact-form">
         <h3 class="form-title">Napiště nám</h3>
         <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
-        <input type="text" placeholder="Jméno" bind:value={name} />
-        <input type="email" placeholder="Email" bind:value={email} />
-        <input type="tel" placeholder="Mobil" bind:value={phone} />
-        <textarea placeholder="Napiště něco o svém vozidle a potřebných službách" bind:value={message}></textarea>
+        <input type="text" placeholder="Jméno" required bind:value={name} disabled={$sending} />
+        <input type="email" placeholder="Email" required bind:value={email} disabled={$sending} />
+        <input type="tel" placeholder="Mobil" bind:value={phone} disabled={$sending} />
+        <textarea
+          placeholder="Napiště něco o svém vozidle a potřebných službách"
+          required
+          bind:value={message}
+          disabled={$sending}
+        ></textarea>
         <button class="button-primary" on:click|preventDefault={sendEmail} disabled={$sending}>
           {$sending ? 'Odesílám...' : 'Poptat služby'}
         </button>
