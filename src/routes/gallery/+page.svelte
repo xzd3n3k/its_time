@@ -3,25 +3,16 @@
   import { onMount } from 'svelte';
 
   const images = [
-    { src: '/audi_rs8_spz.jpg', label: 'Audi RS8', description: 'Kompletní mytí + keramická ochrana' },
+    { src: '/AudiA7.jpg', label: 'Audi A7', description: 'Kompletní mytí + keramická ochrana' },
     {
-      src: '/audi_rs8_interior_lowquality.jpeg',
-      label: 'Audi RS8',
-      description: 'Kompletní čištění interiéru + impregnace kůže',
-    },
-    { src: '/audi_rs3_spz.jpeg', label: 'Audi RS5', description: 'Kompletní mytí + keramická ochrana' },
-    {
-      src: '/audi_rs3_wheel_lowquality.jpg',
+      src: '/AudiRS5.jpg',
       label: 'Audi RS5',
-      description: 'Kompletní dekontaminace kol + keramická ochrana',
+      description: 'Kompletní mytí + keramická ochrana',
     },
-    { src: '/nissan_gtr_spz.jpeg', label: 'Nissan GTR', description: 'Renovace laku + keramická ochrana' },
-    { src: '/mercedes_a180_spz.jpeg', label: 'Mercedes Benz A180', description: 'Kompletní mytí + vosk' },
-    {
-      src: '/mercedes_a180_interior_lowquality.jpeg',
-      label: 'Mercedes Benz A180',
-      description: 'Hloubkové čištění interiéru',
-    },
+    { src: '/MercedesA.jpg', label: 'Mercedes Benz A180', description: 'Kompletní mytí + vosk' },
+    { src: '/BMWM3.jpg', label: 'BMW M3 CS', description: 'Kompletní mytí + keramická ochrana' },
+    { src: '/MercedesS.jpg', label: 'Mercedes S', description: 'Kompletní mytí + keramická ochrana' },
+    { src: '/porsche_cayenne.jpg', label: 'Porsche Cayenne', description: 'Kompletní mytí + keramická ochrana' },
   ];
 
   let imagesLoaded = false;
