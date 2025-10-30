@@ -1,6 +1,7 @@
 <script lang="ts">
   import ContactInfoCard from '../ContactInfoCard.svelte';
   import { writable } from 'svelte/store';
+  import { fly } from 'svelte/transition';
   import { toast } from 'svelte-sonner';
   import { emailService, type ContactForm } from '../../lib/services/emailService';
 
@@ -40,10 +41,12 @@
 
 <div class="contacts">
   <div class="contacts-container">
-    <h2 class="heading">Domluvte si svůj termín</h2>
-    <p class="subheading">Připraveni dopřát svému vozidlu péči, kterou si zaslouží? Kontaktujte nás ještě dnes</p>
+    <h2 class="heading" in:fly={{ y: -100, duration: 800, delay: 100 }}>Domluvte si svůj termín</h2>
+    <p class="subheading" in:fly={{ y: -100, duration: 800, delay: 100 }}>
+      Připraveni dopřát svému vozidlu péči, kterou si zaslouží? Kontaktujte nás ještě dnes
+    </p>
     <div class="contacts-wrapper">
-      <div class="contact-form">
+      <div class="contact-form" in:fly={{ x: -200, duration: 800, delay: 100 }}>
         <h3 class="form-title">Napiště nám</h3>
         <span class="subtitle">Vyplň formulář a my se Vám ozveme hned jak to bude možné</span>
         <input type="text" placeholder="Jméno" bind:value={name} disabled={$sending} />
@@ -58,7 +61,7 @@
           {$sending ? 'Odesílám...' : 'Poptat služby'}
         </button>
       </div>
-      <div class="contact-info">
+      <div class="contact-info" in:fly={{ x: 200, duration: 800, opacity: 0 }}>
         <ContactInfoCard header="Mobil" icon="phone">+420 727 964 649</ContactInfoCard>
         <ContactInfoCard header="Email" icon="email">Na vytvoření emailové schránky se pracuje</ContactInfoCard>
         <ContactInfoCard header="Lokace" icon="location">

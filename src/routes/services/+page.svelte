@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import ServiceInfoCard from '../ServiceInfoCard.svelte';
+  import { fly } from 'svelte/transition';
 
   const services = [
     {
@@ -100,9 +101,11 @@
 
 <div class="services">
   <div class="services-container">
-    <h2 class="heading">Naše služby</h2>
-    <p class="subheading">Profesionální detailingové služby přizpůsobené potřebám vašeho vozidla</p>
-    <div class="services-wrapper">
+    <h2 class="heading" in:fly={{ x: -200, duration: 800, delay: 100 }}>Naše služby</h2>
+    <p class="subheading" in:fly={{ x: -200, duration: 800, delay: 100 }}>
+      Profesionální detailingové služby přizpůsobené potřebám vašeho vozidla
+    </p>
+    <div class="services-wrapper" in:fly={{ x: 200, duration: 800, opacity: 0 }}>
       {#each services as serviceItem, i (i)}
         <ServiceInfoCard {...serviceItem} />
       {/each}
