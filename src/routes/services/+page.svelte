@@ -51,7 +51,6 @@
         'Navíc: Tepování textilních sedadel a koberců',
         'Čištění kožených sedadel a následná impregnace',
         'Čištění interiérových plastů, včetně následné impregnace',
-        'Aplikace keramického povlaku na okna',
       ],
       icon: 'premium_package',
     },
