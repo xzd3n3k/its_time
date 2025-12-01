@@ -4,6 +4,12 @@
     price: string;
   }
 
+  interface TimeRange {
+    start: number;
+    end: number;
+    unit: string;
+  }
+
   let {
     title,
     subtitle,
@@ -11,6 +17,7 @@
     taskList,
     price,
     icon,
+    timeRange,
   }: {
     title?: string;
     subtitle?: string;
@@ -18,13 +25,32 @@
     taskList?: string[];
     price?: string;
     icon?: string;
+    timeRange?: TimeRange;
   } = $props();
 </script>
 
 <div class="card-container">
-  {#if icon}
-    <div class="icon-wrapper">
-      <img src="/{icon}.svg" width="24" height="24" alt="icon-{icon}" />
+  {#if icon || timeRange}
+    <div class="card-top-icons">
+      {#if icon}
+        <div class="icon-wrapper">
+          <img src="/{icon}.svg" width="24" height="24" alt="icon-{icon}" />
+        </div>
+      {/if}
+      {#if !icon && timeRange}
+        <div></div>
+      {/if}
+      {#if timeRange}
+        <div class="time-range">
+          <img src="/clock.svg" width="16" height="16" alt="icon-clock" />
+          <span>
+            {timeRange.start}
+            {#if timeRange.end}-{/if}
+            {timeRange.end}
+          </span>
+          {timeRange.unit}
+        </div>
+      {/if}
     </div>
   {/if}
 
@@ -152,6 +178,22 @@
     min-width: 48px;
     min-height: 48px;
     height: 48px;
+  }
+
+  .card-top-icons {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--color-accent);
+    font-weight: normal;
+    font-size: 0.85rem;
+
+    .time-range {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
   }
 
   .price-list-items {
