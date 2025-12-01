@@ -20,6 +20,11 @@
         'Impregnace pneumatik',
       ],
       icon: 'hand_wash',
+      timeRange: {
+        start: 2,
+        end: 3,
+        unit: 'hodiny',
+      },
     },
     {
       title: 'Balíček Standard',
@@ -37,6 +42,11 @@
         'Vyleštění oken a displejů',
       ],
       icon: 'standard_package',
+      timeRange: {
+        start: 4,
+        end: 6,
+        unit: 'hodin',
+      },
     },
     {
       title: 'Balíček Premium',
@@ -53,6 +63,10 @@
         'Čištění interiérových plastů, včetně následné impregnace',
       ],
       icon: 'premium_package',
+      timeRange: {
+        start: 1,
+        unit: 'den',
+      },
     },
     {
       title: 'Voskování vozu',
@@ -69,6 +83,11 @@
         'Aplikace keramického povlaku na okna',
       ],
       icon: 'wax',
+      timeRange: {
+        start: 6,
+        end: 8,
+        unit: 'hodin',
+      },
     },
     {
       title: 'Renovace a leštění laku',
@@ -94,6 +113,10 @@
       ],
       price: '500 Kč',
       icon: 'ozone_disinfection',
+      timeRange: {
+        start: 3,
+        unit: 'hodiny',
+      },
     },
   ];
 </script>
