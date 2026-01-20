@@ -7,9 +7,9 @@
       title: 'Ruční mytí vozu',
       subtitle: 'Kompletní ruční mytí s prémiovou péčí',
       priceList: [
-        { variant: 'Sedan, Kombi', price: '1 500 Kč' },
-        { variant: 'SUV', price: '2 000 Kč' },
-        { variant: 'MPV, Minivan', price: '2 500 Kč' },
+        { variant: 'Sedan, Kombi', price: '1 000 Kč' },
+        { variant: 'SUV', price: '1 500 Kč' },
+        { variant: 'MPV, Minivan', price: '2 000 Kč' },
       ],
       taskList: [
         'Aktivní pěna',

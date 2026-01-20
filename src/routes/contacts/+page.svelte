@@ -70,7 +70,7 @@
             <span>Brno-Chrlice</span>
           </div>
         </ContactInfoCard>
-        <ContactInfoCard header="IČO" icon="id_card">CZ123456789</ContactInfoCard>
+        <ContactInfoCard header="IČO" icon="id_card">24372307</ContactInfoCard>
         <ContactInfoCard header="Otevírací doba">
           <div class="business-hours">
             <span>Pondělí - Pátek</span>
