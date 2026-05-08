@@ -63,7 +63,7 @@
       </div>
       <div class="contact-info" in:fly={{ x: 200, duration: 800, opacity: 0 }}>
         <ContactInfoCard header="Mobil" icon="phone">+420 727 964 649</ContactInfoCard>
-        <ContactInfoCard header="Email" icon="email">Na vytvoření emailové schránky se pracuje</ContactInfoCard>
+        <ContactInfoCard header="Email" icon="email">davidhanus@itstime.cz</ContactInfoCard>
         <ContactInfoCard header="Lokace" icon="location">
           <div class="address">
             <span>Zámecká 33/57,</span>
